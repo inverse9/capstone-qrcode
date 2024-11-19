@@ -155,7 +155,6 @@ const Layout = () => {
           </section>
           <div className="pt-20 h-screen relative bg-slate-100">
             <div className={`container h-full mx-auto px-4 `}>
-              {/* yrdy */}
               {/* {sessionData.id !== 3 && <Notifications />} */}
               <Outlet />
             </div>
