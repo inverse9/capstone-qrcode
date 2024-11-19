@@ -5,20 +5,23 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Superadmin from "./pages/super-admin/index.jsx";
 import Admin from "./pages/admin/index.jsx";
-import Navbar from "./pages/Navbar.jsx";
+import Layout from "./pages/Layout.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navbar />,
-  },
-  {
-    path: "superadmin/",
-    element: <Superadmin />,
-  },
-  {
-    path: "admin/",
-    element: <Admin />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/superadmin",
+        element: <Superadmin />,
+      },
+      {
+        index: true,
+        // path: "/admin",
+        element: <Admin />,
+      },
+    ],
   },
 ]);
 
