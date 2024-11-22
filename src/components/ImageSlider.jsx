@@ -13,7 +13,7 @@ const ImageSlider = ({ images }) => {
 
   return (
     <div className="relative w-full max-w-2xl mx-auto">
-      <div className="overflow-hidden h-[200px]">
+      <div className="overflow-hidden h-[200px] lg:h-96">
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
@@ -34,14 +34,13 @@ const ImageSlider = ({ images }) => {
         ❯
       </button>
 
-      {/* Dots Indicator */}
       <div className="flex justify-center mt-4 space-x-2">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-blue-500" : "bg-gray-300"
+              index === currentIndex ? "bg-indigo-500" : "bg-gray-300"
             }`}
           ></button>
         ))}

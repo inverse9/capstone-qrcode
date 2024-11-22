@@ -91,7 +91,7 @@ const Layout = () => {
                           }`
                         }
                       >
-                        <span>home</span>
+                        <span>page 1</span>
                       </NavLink>
                       <NavLink
                         to={"/superadmin"}
@@ -99,14 +99,14 @@ const Layout = () => {
                         // rel={menu.rel}
                         role="menuitem"
                         className={({ isActive }) =>
-                          `flex p-1 pl-3 border-l -ml-px  ${
+                          `flex p-1 pl-3 border-l -ml-px ${
                             isActive
                               ? "text-primary-600 font-medium  border-primary-500"
                               : "hover:text-slate-700 hover:border-l-slate-700"
                           }`
                         }
                       >
-                        <span>superaxmcin</span>
+                        <span>page 2</span>
                       </NavLink>
                     </li>
                     {/* ))} */}
