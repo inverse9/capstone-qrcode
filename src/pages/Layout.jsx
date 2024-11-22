@@ -64,7 +64,11 @@ const Layout = () => {
         >
           <nav className="flex flex-col lg:w-64 sm:max-w-xs bg-white h-full relative border-r">
             <div className="flex w-full items-center px-6 py-6">
-              <img className="w-full h-full object-cover" alt="logo" />
+              <img
+                className="w-full h-full object-cover"
+                src="https://image.similarpng.com/very-thumbnail/2021/07/Colorful-logo-design-template-on-transparent-background-PNG.png"
+                alt="logo"
+              />
             </div>
             <div className="px-4 pb-6 overflow-y-auto">
               <ul className="mb-8 text-sm">
