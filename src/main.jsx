@@ -6,6 +6,8 @@ import Superadmin from "./pages/super-admin/index.jsx";
 import Admin from "./pages/admin/index.jsx";
 import Layout from "./pages/Layout.jsx";
 import ScannedObject from "./pages/public-user/scanned-object/index.jsx";
+import Login from "./pages/Login.jsx";
+import SignUp from "./pages/SignUp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
         element: <Admin />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
   {
     path: "/scan/:id",

@@ -20,7 +20,7 @@ const ScannedObject = () => {
         <h1 className="font-semibold text-lg">Sejarah</h1>
         <Separator />
 
-        <div className="text-sm text-justify">
+        <div className="text-sm text-justify mt-2">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt
           magnam dolores, molestiae sequi ut ratione deleniti? Cum aut, quas
           praesentium laudantium, nulla accusantium natus dignissimos
@@ -37,7 +37,7 @@ const ScannedObject = () => {
       <section className="mt-10">
         <h1 className="font-semibold text-lg">Video</h1>
         <Separator />
-        <div className="aspect-video w-full bg-red-100 lg:w-1/2">
+        <div className="aspect-video w-full bg-red-100 lg:w-1/2 mt-2">
           <iframe
             width="100%"
             height="100%"
@@ -54,7 +54,7 @@ const ScannedObject = () => {
         <h1 className="font-semibold text-lg">Referensi</h1>
         <Separator />
 
-        <ol className="text-sm list-decimal ">
+        <ol className="text-sm list-decimal mt-2">
           <li className="ml-4 text-justify text-xs lg:text-sm">
             Husaini, Adian (2005).{" "}
             <span className="italic">
@@ -75,7 +75,7 @@ const ScannedObject = () => {
       </section>
       <section className="mt-10 ">
         <Separator />
-        <div className="flex gap-x-4 items-center">
+        <div className="flex gap-x-4 items-center mt-2">
           <img
             src="https://image.similarpng.com/very-thumbnail/2021/07/Colorful-logo-design-template-on-transparent-background-PNG.png"
             alt=""
