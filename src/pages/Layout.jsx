@@ -98,7 +98,7 @@ const Layout = () => {
                         <span>Home</span>
                       </NavLink>
                       <NavLink
-                        to={"/object"}
+                        to={"/objects"}
                         // target={menu.target}
                         // rel={menu.rel}
                         role="menuitem"

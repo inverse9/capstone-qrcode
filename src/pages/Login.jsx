@@ -55,7 +55,7 @@ const Login = () => {
               className="text-sm text-slate-600"
               onClick={() => navigate("/signup")}
             >
-              Don't have an acount?{" "}
+              Don{"'"}t have an acount?{" "}
               <span className="hover:underline cursor-pointer">
                 Sign Up Here
               </span>

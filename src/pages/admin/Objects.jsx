@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -7,10 +7,13 @@ import {
 } from "@headlessui/react";
 import QRcode from "../../components/QRcode";
 import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
 
-const rootPath = "http://localhost:5173";
+const ROOTPATH = "http://localhost:5173";
 
 const Object = () => {
+  const navigate = useNavigate();
+
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   let [isOpen, setIsOpen] = useState(false);
@@ -22,7 +25,10 @@ const Object = () => {
 
   return (
     <div>
-      <button className="w-fit lg:w-2/12 py-2 px-4 bg-indigo-500 rounded-lg text-slate-100 hover:bg-indigo-600">
+      <button
+        onClick={() => navigate("/object")}
+        className="w-fit lg:w-2/12 py-2 px-4 bg-indigo-500 rounded-lg text-slate-100 hover:bg-indigo-600"
+      >
         Tambah Object
       </button>
       <table className=" w-full text-sm bg-white shadow rounded-2xl mt-6">
@@ -89,7 +95,7 @@ const Object = () => {
                     QR Code Patung Catur Muka
                   </DialogTitle>
                   <div className="mt-2 aspect-square w-full flex items-center justify-center border-2 p-2 border-slate-700 rounded-lg">
-                    <QRcode text={`${rootPath}/scan/3`} size={size} />
+                    <QRcode text={`${ROOTPATH}/scan/3`} size={size} />
                   </div>
                 </div>
               </div>
