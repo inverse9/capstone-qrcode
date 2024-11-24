@@ -114,6 +114,34 @@ const Layout = () => {
                       </NavLink>
 
                       <NavLink
+                        to={"/login"}
+                        // target={menu.target}
+                        // rel={menu.rel}
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          `flex p-1 pl-3 border-l -ml-px ${
+                            isActive
+                              ? "text-primary-600 font-medium  border-primary-500"
+                              : "hover:text-slate-700 hover:border-l-slate-700"
+                          }`
+                        }
+                      >
+                        <span>contoh login screen</span>
+                      </NavLink>
+                      <NavLink
+                        to={"/signup"}
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          `flex p-1 pl-3 border-l -ml-px ${
+                            isActive
+                              ? "text-primary-600 font-medium  border-primary-500"
+                              : "hover:text-slate-700 hover:border-l-slate-700"
+                          }`
+                        }
+                      >
+                        <span>contoh signup screen</span>
+                      </NavLink>
+                      <NavLink
                         to={"/scan/3"}
                         // target={menu.target}
                         // rel={menu.rel}
