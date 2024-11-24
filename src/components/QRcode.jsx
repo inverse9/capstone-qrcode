@@ -2,8 +2,8 @@
 import React from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
-const QRcode = ({ text }) => {
-  return <QRCodeCanvas level="H" size={400} value={text} />;
+const QRcode = ({ text, size }) => {
+  return <QRCodeCanvas level="H" size={size} value={text} />;
 };
 
 export default QRcode;

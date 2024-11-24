@@ -59,7 +59,7 @@ const Layout = () => {
       <div className={`flex h-full`}>
         <div
           ref={side}
-          className={`transition-all duration-500 ease-in-out w-64 fixed -ml-64 md:ml-0 h-full border-r z-10 md:z-10
+          className={`transition-all duration-500 ease-in-out w-64 fixed -ml-64 md:ml-0 h-full border-r z-20 md:z-10
               `}
         >
           <nav className="flex flex-col lg:w-64 sm:max-w-xs bg-white h-full relative border-r">
