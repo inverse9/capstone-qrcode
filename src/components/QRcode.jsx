@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import { QRCodeSVG } from "qrcode.react";
+import { QRCodeCanvas } from "qrcode.react";
 
-const QRcode = () => {
-  return <QRCodeSVG value="https://reactjs.org/" />;
+const QRcode = ({ text }) => {
+  return <QRCodeCanvas level="H" size={400} value={text} />;
 };
 
 export default QRcode;

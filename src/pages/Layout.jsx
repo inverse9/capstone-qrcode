@@ -59,7 +59,7 @@ const Layout = () => {
       <div className={`flex h-full`}>
         <div
           ref={side}
-          className={`transition-all duration-500 ease-in-out w-64 fixed -ml-64 md:ml-0 h-full border-r z-50 md:z-40
+          className={`transition-all duration-500 ease-in-out w-64 fixed -ml-64 md:ml-0 h-full border-r z-10 md:z-10
               `}
         >
           <nav className="flex flex-col lg:w-64 sm:max-w-xs bg-white h-full relative border-r">
@@ -112,6 +112,28 @@ const Layout = () => {
                       >
                         <span>Object</span>
                       </NavLink>
+
+                      <NavLink
+                        to={"/scan/3"}
+                        // target={menu.target}
+                        // rel={menu.rel}
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          `flex p-1 pl-3 border-l -ml-px ${
+                            isActive
+                              ? "text-primary-600 font-medium  border-primary-500"
+                              : "hover:text-slate-700 hover:border-l-slate-700"
+                          }`
+                        }
+                      >
+                        <span>
+                          contoh hasil scan,{" "}
+                          <span className="italic">
+                            {" "}
+                            (gunakan mobile view untuk UX yg baik)
+                          </span>
+                        </span>
+                      </NavLink>
                     </li>
                     {/* ))} */}
                   </div>
@@ -131,7 +153,7 @@ const Layout = () => {
                 setSidebar={setSidebarOpen}
                 // isMobile={isMobile}
               /> */}
-          <section className="z-40 fixed h-14 w-full bg-white border-b flex items-center px-4">
+          <section className="z-10 fixed h-14 w-full bg-white border-b flex items-center px-4">
             <button
               className=" flex items-center rounded hover:ring-red-200 hover:ring-2 focus:ring-red-100"
               onClick={() => setSidebarOpen(!isSidebarOpen)}
@@ -168,7 +190,7 @@ const Layout = () => {
       {isMobile && !isSidebarOpen && (
         <div
           onClick={() => setSidebarOpen(!isSidebarOpen)}
-          className="absolute bg-red-100 inset-0 z-40 backdrop-blur-sm bg-white/30"
+          className="absolute bg-red-100 inset-0 z-10 backdrop-blur-sm bg-white/30"
         />
       )}
     </>
