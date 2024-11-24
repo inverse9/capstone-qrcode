@@ -1,6 +1,7 @@
 import React from "react";
 import ImageSlider from "../../../components/ImageSlider";
 import Separator from "../../../components/Separator";
+import { useParams } from "react-router-dom";
 
 const images = [
   "https://bva.telkomuniversity.ac.id/wp-content/uploads/2024/06/image-20.png",
@@ -9,9 +10,11 @@ const images = [
 ];
 
 const ScannedObject = () => {
+  let { id } = useParams();
+
   return (
     <div className="m-4">
-      <h1 className="font-semibold text-lg">Patung Catur Muka</h1>
+      <h1 className="font-semibold text-lg">Patung Catur Muka {id}</h1>
       <div className="-mx-4 mt-4">
         <ImageSlider images={images} />
       </div>

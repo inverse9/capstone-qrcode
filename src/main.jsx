@@ -8,6 +8,7 @@ import Layout from "./pages/Layout.jsx";
 import ScannedObject from "./pages/public-user/scanned-object/index.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import Object from "./pages/admin/Object.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         index: true,
         // path: "/admin",
         element: <Admin />,
+      },
+      {
+        path: "/object",
+        element: <Object />,
       },
     ],
   },

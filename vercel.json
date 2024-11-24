@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/scan/:id",
+      "destination": "/"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/"
+    }
+  ]
+}

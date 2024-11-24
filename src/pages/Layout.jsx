@@ -95,10 +95,10 @@ const Layout = () => {
                           }`
                         }
                       >
-                        <span>page 1</span>
+                        <span>Home</span>
                       </NavLink>
                       <NavLink
-                        to={"/superadmin"}
+                        to={"/object"}
                         // target={menu.target}
                         // rel={menu.rel}
                         role="menuitem"
@@ -110,7 +110,7 @@ const Layout = () => {
                           }`
                         }
                       >
-                        <span>page 2</span>
+                        <span>Object</span>
                       </NavLink>
                     </li>
                     {/* ))} */}
