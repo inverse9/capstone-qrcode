@@ -207,7 +207,7 @@ const Layout = () => {
               {/* <ProfileDropDown /> */}
             </div>
           </section>
-          <div className="pt-20 h-screen relative bg-slate-100">
+          <div className="pt-20 min-h-screen relative bg-slate-100">
             <div className={`container h-full mx-auto px-4 `}>
               {/* {sessionData.id !== 3 && <Notifications />} */}
               <Outlet />
@@ -218,7 +218,7 @@ const Layout = () => {
       {isMobile && !isSidebarOpen && (
         <div
           onClick={() => setSidebarOpen(!isSidebarOpen)}
-          className="absolute bg-red-100 inset-0 z-10 backdrop-blur-sm bg-white/30"
+          className="absolute inset-0 z-10 backdrop-blur-sm bg-white/30"
         />
       )}
     </>

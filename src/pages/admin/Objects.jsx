@@ -55,11 +55,7 @@ const Object = () => {
               </div>
             </td>
             <td>
-              <div className="">
-                13:24:00
-                <br />
-                14-November-2024
-              </div>
+              <div className="">13:24:00 - 14 November 2024</div>
             </td>
             <td className="p-3 ">
               {" "}

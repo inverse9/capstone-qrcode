@@ -42,7 +42,7 @@ const MarkdownEditor = () => {
     <>
       <MDXEditor
         className="border border-slate-400 rounded-lg"
-        markdown="Hello world"
+        markdown="..."
         contentEditableClassName="prose"
         imagePlugin
         plugins={[
