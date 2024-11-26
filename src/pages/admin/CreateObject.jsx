@@ -40,7 +40,7 @@ const CreateObject = () => {
       </div>
       {isLast && (
         <button
-          className="py-2 px-3 w-fit bg-indigo-600 mt-2 rounded-lg text-slate-100 hover:bg-indigo-700"
+          className="py-2 px-3 w-fit bg-blue-600 mt-2 rounded-lg text-slate-100 hover:bg-blue-700"
           onClick={() => handleAddComponent()}
         >
           Tambah kategori lain
@@ -72,7 +72,7 @@ const CreateObject = () => {
       </div>
 
       <div className="text-right">
-        <button className="w-fit lg:w-2/12 py-2 px-4 bg-indigo-600 rounded-lg text-slate-100 hover:bg-indigo-700 mt-4">
+        <button className="w-fit lg:w-2/12 py-2 px-4 bg-blue-600 rounded-lg text-slate-100 hover:bg-blue-700 mt-4">
           Submit
         </button>
       </div>

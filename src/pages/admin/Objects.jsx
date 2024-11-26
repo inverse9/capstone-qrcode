@@ -9,7 +9,7 @@ import QRcode from "../../components/QRcode";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import Paging from "../../components/Paging";
-import { PencilIcon, TrashIcon } from "@heroicons/react/20/solid";
+import { PencilIcon, QrCodeIcon, TrashIcon } from "@heroicons/react/20/solid";
 
 const ROOTPATH = "http://localhost:5173";
 
@@ -18,7 +18,7 @@ const Object = () => {
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [size, setSize] = useState(400);
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setSize(isMobile ? 190 : 400);
@@ -29,7 +29,7 @@ const Object = () => {
       <div>
         <button
           onClick={() => navigate("/object")}
-          className="w-fit lg:w-2/12 py-2 px-4 bg-indigo-600 rounded-lg text-slate-100 hover:bg-indigo-700"
+          className="w-fit lg:w-2/12 py-2 px-4 bg-blue-600 rounded-lg text-slate-100 hover:bg-blue-700"
         >
           Tambah Object
         </button>
@@ -41,9 +41,6 @@ const Object = () => {
               </th>
               <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
                 Tanggal dibuat
-              </th>
-              <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
-                QR Code
               </th>
               <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl"></th>
             </tr>
@@ -58,16 +55,14 @@ const Object = () => {
               <td className="p-3">
                 <div className="">13:24:00 PM</div>
               </td>
-              <td className="p-3 ">
-                {" "}
-                <span
-                  className="hover:underline cursor-pointer"
-                  onClick={() => setIsOpen(true)}
-                >
-                  QR Code
-                </span>
-              </td>
+
               <td className="p-3 flex gap-2">
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-blue-500 hover:text-slate-50 hover:border-blue-500"
+                >
+                  <QrCodeIcon className="size-4" />
+                </button>
                 <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
                   <PencilIcon className="size-4" />
                 </button>
@@ -85,16 +80,13 @@ const Object = () => {
               <td className="p-3">
                 <div className="">21 November 2024</div>
               </td>
-              <td className="p-3 ">
-                {" "}
-                <span
-                  className="hover:underline cursor-pointer"
-                  onClick={() => setIsOpen(true)}
-                >
-                  QR Code
-                </span>
-              </td>
               <td className="p-3 flex gap-2">
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-blue-500 hover:text-slate-50 hover:border-blue-500"
+                >
+                  <QrCodeIcon className="size-4" />
+                </button>
                 <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
                   <PencilIcon className="size-4" />
                 </button>
@@ -112,16 +104,13 @@ const Object = () => {
               <td className="p-3">
                 <div className="">20 November 2024</div>
               </td>
-              <td className="p-3 ">
-                {" "}
-                <span
-                  className="hover:underline cursor-pointer"
-                  onClick={() => setIsOpen(true)}
-                >
-                  QR Code
-                </span>
-              </td>
               <td className="p-3 flex gap-2">
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-blue-500 hover:text-slate-50 hover:border-blue-500"
+                >
+                  <QrCodeIcon className="size-4" />
+                </button>
                 <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
                   <PencilIcon className="size-4" />
                 </button>
@@ -139,16 +128,13 @@ const Object = () => {
               <td className="p-3">
                 <div className="">19 Oktober 2024</div>
               </td>
-              <td className="p-3 ">
-                {" "}
-                <span
-                  className="hover:underline cursor-pointer"
-                  onClick={() => setIsOpen(true)}
-                >
-                  QR Code
-                </span>
-              </td>
               <td className="p-3 flex gap-2">
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-blue-500 hover:text-slate-50 hover:border-blue-500"
+                >
+                  <QrCodeIcon className="size-4" />
+                </button>
                 <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
                   <PencilIcon className="size-4" />
                 </button>
@@ -193,7 +179,7 @@ const Object = () => {
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 sm:ml-3 sm:w-auto"
+                  className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 sm:ml-3 sm:w-auto"
                 >
                   Tutup
                 </button>
