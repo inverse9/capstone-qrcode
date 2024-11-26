@@ -1,6 +1,5 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Superadmin from "./pages/super-admin/index.jsx";
 import Admin from "./pages/admin/index.jsx";
@@ -11,6 +10,7 @@ import SignUp from "./pages/SignUp.jsx";
 import Objects from "./pages/admin/Objects.jsx";
 import CreateObject from "./pages/admin/CreateObject.jsx";
 
+import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",

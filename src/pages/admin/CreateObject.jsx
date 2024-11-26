@@ -28,19 +28,19 @@ const CreateObject = () => {
         </span>
       )}
       <div>
-        <span className="text-sm text-slate-500">Kategori</span>
+        <span className="text-sm ">Kategori</span>
         <input
-          className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
+          className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50 focus:outline-none focus:bg-white"
           type="text"
         />
       </div>
-      <div>
-        <span className="text-sm text-slate-500">Isi</span>
+      <div className="mt-4">
+        <span className="text-sm ">Isi</span>
         <MarkdownEditor />
       </div>
       {isLast && (
         <button
-          className="py-2 px-3 w-fit bg-indigo-500 mt-2 rounded-lg text-slate-100 hover:bg-indigo-600"
+          className="py-2 px-3 w-fit bg-indigo-600 mt-2 rounded-lg text-slate-100 hover:bg-indigo-700"
           onClick={() => handleAddComponent()}
         >
           Tambah kategori lain
@@ -50,14 +50,14 @@ const CreateObject = () => {
   );
 
   return (
-    <div>
+    <div className="px-10">
       <h1 className="font-semibold text-xl mb-4">Input Object</h1>
       <div className="flex flex-col gap-4">
         <section className="bg-white rounded-md w-full p-4 shadow">
           <div>
-            <span className="text-sm text-slate-500">Nama Object</span>
+            <span className="text-sm ">Nama Object</span>
             <input
-              className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
+              className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50 focus:outline-none focus:bg-white"
               type="text"
             />
           </div>
@@ -72,7 +72,7 @@ const CreateObject = () => {
       </div>
 
       <div className="text-right">
-        <button className="w-fit lg:w-2/12 py-2 px-4 bg-indigo-500 rounded-lg text-slate-100 hover:bg-indigo-600 mt-4">
+        <button className="w-fit lg:w-2/12 py-2 px-4 bg-indigo-600 rounded-lg text-slate-100 hover:bg-indigo-700 mt-4">
           Submit
         </button>
       </div>

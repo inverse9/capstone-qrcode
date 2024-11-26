@@ -28,14 +28,14 @@ const Login = () => {
         </div>
         <section className="relative">
           <div>
-            <span className="text-sm text-slate-500">Email Address</span>
+            <span className="text-sm ">Email Address</span>
             <input
               className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
               type="text"
             />
           </div>
           <div className="mt-4">
-            <span className="text-sm text-slate-500">Password</span>
+            <span className="text-sm ">Password</span>
             <input
               className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
               type="password"

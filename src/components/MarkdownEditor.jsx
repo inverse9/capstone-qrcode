@@ -19,10 +19,9 @@ import {
   InsertThematicBreak,
   ListsToggle,
 } from "@mdxeditor/editor";
-// import { linkPlugin } from "@mdxeditor/editor/plugins/link";
 
-import "./Md.css";
-// import "@mdxeditor/editor/style.css";
+import "@mdxeditor/editor/style.css";
+// import "./Md.css";
 
 const MarkdownEditor = () => {
   async function imageUploadHandler(image) {
@@ -39,7 +38,7 @@ const MarkdownEditor = () => {
   }
 
   return (
-    <>
+    <div className="object-wrapper">
       <MDXEditor
         className="border border-slate-400 rounded-lg"
         markdown="..."
@@ -73,7 +72,7 @@ const MarkdownEditor = () => {
           }),
         ]}
       />
-    </>
+    </div>
   );
 };
 

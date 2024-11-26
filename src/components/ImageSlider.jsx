@@ -13,7 +13,7 @@ const ImageSlider = ({ images }) => {
 
   return (
     <div className="relative w-full max-w-2xl mx-auto">
-      <div className="overflow-hidden h-[200px] lg:h-96">
+      <div className="overflow-hidden h-[300px] lg:h-96">
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
@@ -40,7 +40,7 @@ const ImageSlider = ({ images }) => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-indigo-500" : "bg-gray-300"
+              index === currentIndex ? "bg-indigo-600" : "bg-gray-300"
             }`}
           ></button>
         ))}
