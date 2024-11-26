@@ -49,26 +49,7 @@ const Object = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            <tr className="hover:bg-slate-200/50 cursor-pointer text-sm ">
-              <td className="p-3 text-left">
-                <div className="text-left">
-                  <h3 className="">Patung Catur Muka</h3>
-                </div>
-              </td>
-              <td className="p-3">
-                <div className="">13:24 PM</div>
-              </td>
-              <td className="p-3 ">
-                {" "}
-                <span
-                  className="hover:underline cursor-pointer"
-                  onClick={() => setIsOpen(true)}
-                >
-                  QR Code
-                </span>
-              </td>
-            </tr>
-            <tr className="hover:bg-slate-200/50 cursor-pointer text-sm ">
+            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
                   <h3 className="">Patung Catur Muka</h3>
@@ -87,15 +68,15 @@ const Object = () => {
                 </span>
               </td>
               <td className="p-3 flex gap-2">
-                <button className="rounded-lg p-2 border border-slate-300">
-                  <PencilIcon className="size-6" />
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                  <PencilIcon className="size-4" />
                 </button>
-                <button className="rounded-lg p-2 border border-slate-300">
-                  <TrashIcon className="size-6" />
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
+                  <TrashIcon className="size-4" />
                 </button>
               </td>
             </tr>
-            <tr className="hover:bg-slate-200/50 cursor-pointer text-sm ">
+            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
                   <h3 className="">Patung Catur Muka</h3>
@@ -113,8 +94,16 @@ const Object = () => {
                   QR Code
                 </span>
               </td>
+              <td className="p-3 flex gap-2">
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                  <PencilIcon className="size-4" />
+                </button>
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
+                  <TrashIcon className="size-4" />
+                </button>
+              </td>
             </tr>
-            <tr className="hover:bg-slate-200/50 cursor-pointer text-sm ">
+            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
                   <h3 className="">Patung Catur Muka</h3>
@@ -131,6 +120,41 @@ const Object = () => {
                 >
                   QR Code
                 </span>
+              </td>
+              <td className="p-3 flex gap-2">
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                  <PencilIcon className="size-4" />
+                </button>
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
+                  <TrashIcon className="size-4" />
+                </button>
+              </td>
+            </tr>
+            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
+              <td className="p-3 text-left">
+                <div className="text-left">
+                  <h3 className="">Patung Catur Muka</h3>
+                </div>
+              </td>
+              <td className="p-3">
+                <div className="">13:24 PM</div>
+              </td>
+              <td className="p-3 ">
+                {" "}
+                <span
+                  className="hover:underline cursor-pointer"
+                  onClick={() => setIsOpen(true)}
+                >
+                  QR Code
+                </span>
+              </td>
+              <td className="p-3 flex gap-2">
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                  <PencilIcon className="size-4" />
+                </button>
+                <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
+                  <TrashIcon className="size-4" />
+                </button>
               </td>
             </tr>
           </tbody>
@@ -156,9 +180,9 @@ const Object = () => {
                   >
                     QR Code Patung Catur Muka
                   </DialogTitle>
-                  <div className="mt-4">
-                    Untuk menyimpan QR Code, klik kanan pada QR lalu pilih
-                    &quot;Save Image as&quot;
+                  <div className="mt-4 text-sm">
+                    Untuk menyimpan QR Code, klik kanan pada gambar dibawah lalu
+                    pilih &quot;Save Image as&quot;.
                   </div>
                   <div className="mt-2 aspect-square w-full flex items-center justify-center border-2 p-2 border-slate-700 rounded-lg">
                     <QRcode text={`${ROOTPATH}/scan/3`} size={size} />
