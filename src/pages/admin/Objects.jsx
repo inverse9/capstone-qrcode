@@ -9,6 +9,7 @@ import QRcode from "../../components/QRcode";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import Paging from "../../components/Paging";
+import { PencilIcon, TrashIcon } from "@heroicons/react/20/solid";
 
 const ROOTPATH = "http://localhost:5173";
 
@@ -44,6 +45,7 @@ const Object = () => {
               <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
                 QR Code
               </th>
+              <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -83,6 +85,14 @@ const Object = () => {
                 >
                   QR Code
                 </span>
+              </td>
+              <td className="p-3 flex gap-2">
+                <button className="rounded-lg p-2 border border-slate-300">
+                  <PencilIcon className="size-6" />
+                </button>
+                <button className="rounded-lg p-2 border border-slate-300">
+                  <TrashIcon className="size-6" />
+                </button>
               </td>
             </tr>
             <tr className="hover:bg-slate-200/50 cursor-pointer text-sm ">

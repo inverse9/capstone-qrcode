@@ -90,7 +90,7 @@ const Layout = () => {
                         className={({ isActive }) =>
                           `flex p-1 pl-3 border-l -ml-px  ${
                             isActive
-                              ? "text-primary-600 font-medium  border-primary-500"
+                              ? "text-primary-600 font-medium  text-indigo-700 border-indigo-500"
                               : "hover:text-slate-700 hover:border-l-slate-700"
                           }`
                         }
@@ -105,7 +105,7 @@ const Layout = () => {
                         className={({ isActive }) =>
                           `flex p-1 pl-3 border-l -ml-px ${
                             isActive
-                              ? "text-primary-600 font-medium  border-primary-500"
+                              ? "text-primary-600 font-medium text-indigo-700 border-indigo-500"
                               : "hover:text-slate-700 hover:border-l-slate-700"
                           }`
                         }
@@ -121,7 +121,7 @@ const Layout = () => {
                         className={({ isActive }) =>
                           `flex p-1 pl-3 border-l -ml-px ${
                             isActive
-                              ? "text-primary-600 font-medium  border-primary-500"
+                              ? "text-primary-600 font-medium  text-indigo-700 border-indigo-500"
                               : "hover:text-slate-700 hover:border-l-slate-700"
                           }`
                         }
@@ -134,7 +134,7 @@ const Layout = () => {
                         className={({ isActive }) =>
                           `flex p-1 pl-3 border-l -ml-px ${
                             isActive
-                              ? "text-primary-600 font-medium  border-primary-500"
+                              ? "text-primary-600 font-medium  text-indigo-700 border-indigo-500"
                               : "hover:text-slate-700 hover:border-l-slate-700"
                           }`
                         }
@@ -149,7 +149,7 @@ const Layout = () => {
                         className={({ isActive }) =>
                           `flex p-1 pl-3 border-l -ml-px ${
                             isActive
-                              ? "text-primary-600 font-medium  border-primary-500"
+                              ? "text-primary-600 font-medium  text-indigo-700 border-indigo-500"
                               : "hover:text-slate-700 hover:border-l-slate-700"
                           }`
                         }
