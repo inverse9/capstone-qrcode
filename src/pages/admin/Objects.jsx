@@ -56,7 +56,7 @@ const Object = () => {
                 </div>
               </td>
               <td className="p-3">
-                <div className="">13:24 PM</div>
+                <div className="">13:24:00 PM</div>
               </td>
               <td className="p-3 ">
                 {" "}
@@ -79,11 +79,11 @@ const Object = () => {
             <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
-                  <h3 className="">Patung Catur Muka</h3>
+                  <h3 className=""> Garuda Wisnu Kencana</h3>
                 </div>
               </td>
               <td className="p-3">
-                <div className="">13:24 PM</div>
+                <div className="">21 November 2024</div>
               </td>
               <td className="p-3 ">
                 {" "}
@@ -106,11 +106,11 @@ const Object = () => {
             <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
-                  <h3 className="">Patung Catur Muka</h3>
+                  <h3 className="">Lukisan Pasar Tradisional</h3>
                 </div>
               </td>
               <td className="p-3">
-                <div className="">13:24 PM</div>
+                <div className="">20 November 2024</div>
               </td>
               <td className="p-3 ">
                 {" "}
@@ -133,11 +133,11 @@ const Object = () => {
             <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
-                  <h3 className="">Patung Catur Muka</h3>
+                  <h3 className="">Monumen Bajra Sandhi</h3>
                 </div>
               </td>
               <td className="p-3">
-                <div className="">13:24 PM</div>
+                <div className="">19 Oktober 2024</div>
               </td>
               <td className="p-3 ">
                 {" "}
