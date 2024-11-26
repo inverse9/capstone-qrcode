@@ -9,7 +9,12 @@ import QRcode from "../../components/QRcode";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import Paging from "../../components/Paging";
-import { PencilIcon, QrCodeIcon, TrashIcon } from "@heroicons/react/20/solid";
+import {
+  ExclamationTriangleIcon,
+  PencilIcon,
+  QrCodeIcon,
+  TrashIcon,
+} from "@heroicons/react/20/solid";
 
 const ROOTPATH = "http://localhost:5173";
 
@@ -19,6 +24,7 @@ const Object = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [size, setSize] = useState(400);
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenDelete, setIsOpenDelete] = useState(false);
 
   useEffect(() => {
     setSize(isMobile ? 190 : 400);
@@ -46,10 +52,15 @@ const Object = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
+            <tr className="text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
-                  <h3 className="">Patung Catur Muka</h3>
+                  <h3
+                    className="cursor-pointer hover:underline inline"
+                    onClick={() => navigate("/object")}
+                  >
+                    Patung Catur Muka
+                  </h3>
                 </div>
               </td>
               <td className="p-3">
@@ -63,7 +74,10 @@ const Object = () => {
                 >
                   <QrCodeIcon className="size-4" />
                 </button>
-                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                <button
+                  onClick={() => navigate("/object")}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500"
+                >
                   <PencilIcon className="size-4" />
                 </button>
                 <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
@@ -71,10 +85,16 @@ const Object = () => {
                 </button>
               </td>
             </tr>
-            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
+            <tr className="text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
-                  <h3 className=""> Garuda Wisnu Kencana</h3>
+                  <h3
+                    className="cursor-pointer hover:underline inline"
+                    onClick={() => navigate("/object")}
+                  >
+                    {" "}
+                    Garuda Wisnu Kencana
+                  </h3>
                 </div>
               </td>
               <td className="p-3">
@@ -87,7 +107,10 @@ const Object = () => {
                 >
                   <QrCodeIcon className="size-4" />
                 </button>
-                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                <button
+                  onClick={() => navigate("/object")}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500"
+                >
                   <PencilIcon className="size-4" />
                 </button>
                 <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
@@ -95,10 +118,15 @@ const Object = () => {
                 </button>
               </td>
             </tr>
-            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
+            <tr className="text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
-                  <h3 className="">Lukisan Pasar Tradisional</h3>
+                  <h3
+                    className="cursor-pointer hover:underline inline"
+                    onClick={() => navigate("/object")}
+                  >
+                    Lukisan Pasar Tradisional
+                  </h3>
                 </div>
               </td>
               <td className="p-3">
@@ -111,7 +139,10 @@ const Object = () => {
                 >
                   <QrCodeIcon className="size-4" />
                 </button>
-                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                <button
+                  onClick={() => navigate("/object")}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500"
+                >
                   <PencilIcon className="size-4" />
                 </button>
                 <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
@@ -119,10 +150,15 @@ const Object = () => {
                 </button>
               </td>
             </tr>
-            <tr className="hover:bg-slate-100 cursor-pointer text-sm ">
+            <tr className="text-sm ">
               <td className="p-3 text-left">
                 <div className="text-left">
-                  <h3 className="">Monumen Bajra Sandhi</h3>
+                  <h3
+                    className="cursor-pointer hover:underline inline"
+                    onClick={() => navigate("/object")}
+                  >
+                    Monumen Bajra Sandhi
+                  </h3>
                 </div>
               </td>
               <td className="p-3">
@@ -135,10 +171,16 @@ const Object = () => {
                 >
                   <QrCodeIcon className="size-4" />
                 </button>
-                <button className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500">
+                <button
+                  onClick={() => navigate("/object")}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500"
+                >
                   <PencilIcon className="size-4" />
                 </button>
-                <button className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500">
+                <button
+                  onClick={() => setIsOpenDelete(true)}
+                  className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500"
+                >
                   <TrashIcon className="size-4" />
                 </button>
               </td>
@@ -146,6 +188,7 @@ const Object = () => {
           </tbody>
         </table>
       </div>
+
       <Dialog open={isOpen} onClose={setIsOpen} className="relative z-30">
         <DialogBackdrop
           transition
@@ -182,6 +225,59 @@ const Object = () => {
                   className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 sm:ml-3 sm:w-auto"
                 >
                   Tutup
+                </button>
+              </div>
+            </DialogPanel>
+          </div>
+        </div>
+      </Dialog>
+
+      <Dialog
+        open={isOpenDelete}
+        onClose={setIsOpenDelete}
+        className="relative z-30"
+      >
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+        />
+
+        <div className="fixed inset-0 z-30 w-screen overflow-y-auto">
+          <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
+            <DialogPanel
+              transition
+              className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            >
+              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <div className="text-center  sm:mt-0 sm:text-left">
+                  <DialogTitle
+                    as="h3"
+                    className="text-base font-semibold text-gray-900"
+                  >
+                    <div className="flex items-center gap-2">
+                      <ExclamationTriangleIcon className="size-6 text-red-600" />
+                      <span>Hapus Object Patung Catur Muka?</span>
+                    </div>
+                  </DialogTitle>
+                  <div className="mt-4 text-sm">
+                    Object akan hilang dan tidak dapat dikembalikan
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gray-50 px-4 py-3 flex flex-row-reverse sm:px-6 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsOpenDelete(false)}
+                  className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 sm:ml-3 sm:w-auto"
+                >
+                  Hapus!
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsOpenDelete(false)}
+                  className="inline-flex w-full justify-center rounded-md border  px-3 py-2 text-sm font-semibold shadow-sm hover:bg-slate-200 sm:ml-3 sm:w-auto"
+                >
+                  Kembali
                 </button>
               </div>
             </DialogPanel>
