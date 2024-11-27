@@ -71,7 +71,7 @@ const ChartBar = () => {
         <XAxis dataKey="name" tick={false} />
         <YAxis />
         <Tooltip labelStyle={{ fontWeight: "600", marginBottom: "16px" }} />
-        <Bar dataKey="uv" fill="#8884d8" />
+        <Bar dataKey="uv" fill="#5184e7" />
 
         {/* <Bar dataKey="App inhouse" stackId="a" fill="#bc5090" />
         <Bar dataKey="Web" stackId="a" fill="#ff6361" /> */}

@@ -15,12 +15,20 @@ import {
   QrCodeIcon,
   TrashIcon,
 } from "@heroicons/react/20/solid";
+// import { useObjects } from "../../utils/api/useObjects";
 
 const ROOTPATH = "http://localhost:5173";
 
 const Object = () => {
   const navigate = useNavigate();
-
+  // const {
+  //   fetchAll,
+  //   controller,
+  //   isLoading,
+  //   isPageLoaded,
+  //   objects,
+  //   setPageLoaded,
+  // } = useObjects();
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [size, setSize] = useState(400);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +38,26 @@ const Object = () => {
     setSize(isMobile ? 190 : 400);
   }, [isMobile]);
 
+  // useEffect(() => {
+  //   fetchAll(2);
+  //   return () => {
+  //     controller.abort();
+  //   };
+  // }, []);
+
+  // if (isPageLoaded) {
   return (
     <div className="px-2 lg:px-10">
+      {/* {objects && objects.length > 0 ? (
+          <>
+            {objects.map((v, i) => (
+              <div key={i}>{v.object_name}</div>
+            ))}
+          </>
+        ) : (
+          <>asd</>
+        )} */}
+
       <div>
         <button
           onClick={() => navigate("/object")}
@@ -287,6 +313,8 @@ const Object = () => {
       <Paging />
     </div>
   );
+  // }
+  // return "not loaded";
 };
 
 export default Object;

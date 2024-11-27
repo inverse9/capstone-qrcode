@@ -12,46 +12,53 @@ import {
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: "Senin",
+    "Patung Catur Muka": 4000,
+    "Garuda Wisnu Kencana": 2400,
+    "Lukisan Pasar Tradisional": 2400,
+    "Monumen Bajra Sandhi": 1800,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: "Selasa",
+    "Patung Catur Muka": 3000,
+    "Garuda Wisnu Kencana": 1398,
+    "Lukisan Pasar Tradisional": 2210,
+    "Monumen Bajra Sandhi": 3000,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "Rabu",
+    "Patung Catur Muka": 2000,
+    "Garuda Wisnu Kencana": 9800,
+    "Lukisan Pasar Tradisional": 2290,
+    "Monumen Bajra Sandhi": 3100,
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: "Kamis",
+    "Patung Catur Muka": 2780,
+    "Garuda Wisnu Kencana": 3908,
+    "Lukisan Pasar Tradisional": 2000,
+    "Monumen Bajra Sandhi": 1000,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "Jumat",
+    "Patung Catur Muka": 1890,
+    "Garuda Wisnu Kencana": 4800,
+    "Lukisan Pasar Tradisional": 2181,
+    "Monumen Bajra Sandhi": 4500,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: "Sabtu",
+    "Patung Catur Muka": 2390,
+    "Garuda Wisnu Kencana": 3800,
+    "Lukisan Pasar Tradisional": 2500,
+    "Monumen Bajra Sandhi": 6000,
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: "Minggu",
+    "Patung Catur Muka": 3490,
+    "Garuda Wisnu Kencana": 4300,
+    "Lukisan Pasar Tradisional": 2100,
+    "Monumen Bajra Sandhi": 5500,
   },
 ];
 export const ChartLine = () => {
@@ -73,13 +80,19 @@ export const ChartLine = () => {
         <YAxis />
         <Tooltip />
         <Legend />
+        <Line type="monotone" dataKey="Patung Catur Muka" stroke="#5c0823" />
         <Line
           type="monotone"
-          dataKey="pv"
+          dataKey="Garuda Wisnu Kencana"
           stroke="#8884d8"
           activeDot={{ r: 8 }}
         />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        <Line
+          type="monotone"
+          dataKey="Lukisan Pasar Tradisional"
+          stroke="#82ca9d"
+        />
+        <Line type="monotone" dataKey="Monumen Bajra Sandhi" stroke="#5184e7" />
       </LineChart>
     </ResponsiveContainer>
   );

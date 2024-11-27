@@ -20,7 +20,6 @@ const renderActiveShape = (props) => {
     endAngle,
     fill,
     payload,
-    percent,
     value,
   } = props;
   const sin = Math.sin(-RADIAN * midAngle);
@@ -104,7 +103,7 @@ export const ChartPie = () => {
           cy="50%"
           innerRadius={80}
           outerRadius={100}
-          fill="#F88033"
+          fill="#5184e7"
           dataKey="value"
           onMouseEnter={onPieEnter}
         />
