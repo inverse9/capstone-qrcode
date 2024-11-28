@@ -4,6 +4,7 @@ import { axiosRequest } from "../axios";
 export const useObjects = () => {
   const controller = new AbortController();
   const [objects, setObjects] = useState();
+  const [object, setObject] = useState();
   const [isLoading, setLoading] = useState(false);
   const [isPageLoaded, setPageLoaded] = useState(false);
 
@@ -25,21 +26,22 @@ export const useObjects = () => {
       });
   };
 
-  //   const fetchbyId = async (id: number, isVisible?: boolean) => {
-  //     setLoading(true);
-  //     const config: AxiosRequestConfig = {
-  //       signal: controller.signal,
+  const fetchbyId = async (id) => {
+    setLoading(true);
+    const config = {
+      signal: controller.signal,
 
-  //       params: {
-  //         "filter[is_visible]": isVisible,
-  //         include: ["popup", "popup.questions", "counter"],
-  //         append: ["quota_left_today", "latest_with_counter"],
-  //       },
-  //     };
-  //     await axiosRequest("GET", `service/${id}`, config)
-  //       .then((v) => setSelectedService(v.data))
-  //       .finally(() => setLoading(false));
-  //   };
+      params: {
+        relation: true,
+      },
+    };
+    await axiosRequest("GET", `objects/${id}`, config)
+      .then((v) => setObject(v.data))
+      .finally(() => {
+        setLoading(false);
+        setPageLoaded(true);
+      });
+  };
 
   //   const store = async (data: Partial<servicePropsSend>) => {
   //     setLoading(true);
@@ -64,10 +66,11 @@ export const useObjects = () => {
   //   };
 
   return {
+    object,
     objects,
     isLoading,
     fetchAll,
-    // fetchbyId,
+    fetchbyId,
     // store,
     // update,
     // deleteData,

@@ -142,7 +142,7 @@ const Layout = () => {
                         <span>contoh signup screen</span>
                       </NavLink>
                       <NavLink
-                        to={"/scan/3"}
+                        to={"/scan/1"}
                         // target={menu.target}
                         // rel={menu.rel}
                         role="menuitem"
