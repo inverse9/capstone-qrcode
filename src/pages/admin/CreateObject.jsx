@@ -18,7 +18,7 @@ const CreateObject = () => {
   };
 
   const CategoryComponent = ({ id, isLast }) => (
-    <section className="bg-white rounded-md w-full p-4 shadow relative">
+    <section className="bg-white rounded-md w-full p-4 mt-6 shadow relative">
       {components.length > 1 && (
         <span
           onClick={() => handleRemoveComponent(id)}
