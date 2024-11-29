@@ -5,6 +5,7 @@ export const useObjects = () => {
   const controller = new AbortController();
   const [objects, setObjects] = useState();
   const [object, setObject] = useState();
+  const [isErr, setErr] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isPageLoaded, setPageLoaded] = useState(false);
 
@@ -37,6 +38,10 @@ export const useObjects = () => {
     };
     await axiosRequest("GET", `objects/${id}`, config)
       .then((v) => setObject(v.data))
+      .catch((e) => {
+        console.log(e.response.data.errors);
+        setErr(true);
+      })
       .finally(() => {
         setLoading(false);
         setPageLoaded(true);
@@ -69,6 +74,7 @@ export const useObjects = () => {
     object,
     objects,
     isLoading,
+    isErr,
     fetchAll,
     fetchbyId,
     // store,

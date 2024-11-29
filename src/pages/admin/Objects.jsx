@@ -119,7 +119,6 @@ const Object = () => {
                     className="cursor-pointer hover:underline inline"
                     onClick={() => navigate("/object")}
                   >
-                    {" "}
                     Garuda Wisnu Kencana
                   </h3>
                 </div>
@@ -241,7 +240,7 @@ const Object = () => {
                     pilih &quot;Save Image as&quot;.
                   </div>
                   <div className="mt-2 aspect-square w-full flex items-center justify-center border-2 p-2 border-slate-700 rounded-lg">
-                    <QRcode text={`${ROOTPATH}/scan/3`} size={size} />
+                    <QRcode text={`${ROOTPATH}/scan/1`} size={size} />
                   </div>
                 </div>
               </div>

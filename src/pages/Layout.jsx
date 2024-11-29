@@ -63,10 +63,10 @@ const Layout = () => {
               `}
         >
           <nav className="flex flex-col lg:w-64 sm:max-w-xs bg-white h-full relative border-r">
-            <div className="flex w-full items-center px-6 py-6">
+            <div className="flex w-full items-center px-6 py-6 ">
               <img
                 className="w-full h-full object-cover"
-                src="https://image.similarpng.com/very-thumbnail/2021/07/Colorful-logo-design-template-on-transparent-background-PNG.png"
+                src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
                 alt="logo"
               />
             </div>
@@ -114,6 +114,22 @@ const Layout = () => {
                       </NavLink>
 
                       <NavLink
+                        to={"/report"}
+                        // target={menu.target}
+                        // rel={menu.rel}
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          `flex p-1 pl-3 border-l -ml-px ${
+                            isActive
+                              ? "text-primary-600 font-medium  text-blue-700 border-blue-500"
+                              : "hover:text-slate-700 hover:border-l-slate-700"
+                          }`
+                        }
+                      >
+                        <span>Laporan</span>
+                      </NavLink>
+
+                      <NavLink
                         to={"/login"}
                         // target={menu.target}
                         // rel={menu.rel}
@@ -126,41 +142,7 @@ const Layout = () => {
                           }`
                         }
                       >
-                        <span>contoh login screen</span>
-                      </NavLink>
-                      <NavLink
-                        to={"/signup"}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `flex p-1 pl-3 border-l -ml-px ${
-                            isActive
-                              ? "text-primary-600 font-medium  text-blue-700 border-blue-500"
-                              : "hover:text-slate-700 hover:border-l-slate-700"
-                          }`
-                        }
-                      >
-                        <span>contoh signup screen</span>
-                      </NavLink>
-                      <NavLink
-                        to={"/scan/1"}
-                        // target={menu.target}
-                        // rel={menu.rel}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `flex p-1 pl-3 border-l -ml-px ${
-                            isActive
-                              ? "text-primary-600 font-medium  text-blue-700 border-blue-500"
-                              : "hover:text-slate-700 hover:border-l-slate-700"
-                          }`
-                        }
-                      >
-                        <span>
-                          contoh hasil scan,{" "}
-                          <span className="italic">
-                            {" "}
-                            (gunakan mobile view untuk UX yg baik)
-                          </span>
-                        </span>
+                        <span>Logout</span>
                       </NavLink>
                     </li>
                     {/* ))} */}
