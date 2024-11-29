@@ -6,8 +6,8 @@ import { ChartLine } from "../../components/charts/ChartLine";
 const Admin = () => {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-4 h-[500px]">
-        <div className="flex flex-col w-2/6 h-full">
+      <div className="flex flex-col lg:flex-row gap-4 md:h-[500px] h-[1000px]">
+        <div className="flex flex-col w-full lg:w-2/6 h-full">
           <h1 className="font-semibold">Jumlah Object yang di scan hari ini</h1>
           <div className=" w-full h-full border p-4 bg-white rounded-lg">
             <div className="flex flex-col size-full">
@@ -34,7 +34,7 @@ const Admin = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="md:flex-1 h-[900px] md:h-full">
           <div className="flex flex-col w-full h-full">
             <h1 className="font-semibold">
               Jumlah Object yang di scan dalam waktu 1 minggu terakhir

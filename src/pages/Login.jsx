@@ -4,16 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+
   return (
-    <div className="h-screen flex">
-      <div className="w-1/2 overflow-hidden">
+    <div className="h-screen flex flex-col md:flex-row">
+      <div className="w-full md:w-1/2 md:overflow-hidden hidden md:block">
         <img
           src="https://arvitour.com/wp-content/uploads/2022/07/Kota-Denpasar.jpg.webp"
           alt=""
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="bg-slate-50 flex-1 flex flex-col justify-center p-20">
+      <div className=" bg-slate-50 flex-1 flex flex-col justify-center p-8 py-6 md:p-20">
         <div className="font-bold text-2xl mb-10">Sign in</div>
         <div className="flex flex-col gap-4">
           <button className="rounded-full w-full border border-slate-600 py-3 hover:bg-slate-200/50">

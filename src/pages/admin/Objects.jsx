@@ -36,7 +36,7 @@ const Object = () => {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
 
   useEffect(() => {
-    setSize(isMobile ? 190 : 400);
+    setSize(isMobile ? 300 : 400);
   }, [isMobile]);
 
   // useEffect(() => {

@@ -3,8 +3,8 @@ import Separator from "../components/Separator";
 
 const SignUp = () => {
   return (
-    <div className="h-screen bg-[url('https://arvitour.com/wp-content/uploads/2022/07/Kota-Denpasar.jpg.webp')] bg-cover bg-center flex items-center justify-center">
-      <div className="bg-slate-50 rounded-2xl px-32 py-16 flex flex-col w-2/5">
+    <div className="h-screen bg-[url('https://arvitour.com/wp-content/uploads/2022/07/Kota-Denpasar.jpg.webp')] bg-cover bg-center flex md:items-center justify-center">
+      <div className="bg-slate-50 md:rounded-2xl px-20 md:px-32 py-16 flex flex-col w-full lg:w-2/5 md:w-2/3">
         <span className="font-semibold text-2xl text-center mb-6">Sign Up</span>
         <div>
           <span className="text-sm ">Email Address</span>
