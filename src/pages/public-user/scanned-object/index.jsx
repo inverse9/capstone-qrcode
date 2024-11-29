@@ -4,6 +4,7 @@ import Separator from "../../../components/Separator";
 import { useParams } from "react-router-dom";
 import { useObjects } from "../../../utils/api/useObjects";
 import DOMPurify from "dompurify";
+import StaticSite from "../Static-site";
 
 const ScannedObject = () => {
   let { id } = useParams();
@@ -26,7 +27,7 @@ const ScannedObject = () => {
 
   if (isPageLoaded) {
     return isErr ? (
-      <>Halaman tidak dapat diakses, karena server Backend belum running</>
+      <StaticSite />
     ) : (
       <div className="m-4">
         <h1 className="font-semibold text-xl capitalize">
