@@ -26,7 +26,7 @@ const ScannedObject = () => {
 
   if (isPageLoaded) {
     return isErr ? (
-      <>dsad</>
+      <>Halaman tidak dapat diakses, karena server Backend belum running</>
     ) : (
       <div className="m-4">
         <h1 className="font-semibold text-xl capitalize">
@@ -79,7 +79,7 @@ const ScannedObject = () => {
       </div>
     );
   }
-  return "not loaded";
+  return "Loading ...";
 };
 
 export default ScannedObject;

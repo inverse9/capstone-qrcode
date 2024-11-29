@@ -38,8 +38,17 @@ export const useObjects = () => {
     };
     await axiosRequest("GET", `objects/${id}`, config)
       .then((v) => setObject(v.data))
+
       .catch((e) => {
-        console.log(e.response.data.errors);
+        console.error("Error object:", e);
+        if (e.response) {
+          console.error("Response data:", e.response.data);
+          console.error("Response status:", e.response.status);
+        } else if (e.request) {
+          console.error("No response received:", e.request);
+        } else {
+          console.error("Error:", e.message);
+        }
         setErr(true);
       })
       .finally(() => {
