@@ -31,14 +31,12 @@ export const useObjects = () => {
     setLoading(true);
     const config = {
       signal: controller.signal,
-
       params: {
         relation: true,
       },
     };
     await axiosRequest("GET", `objects/${id}`, config)
       .then((v) => setObject(v.data))
-
       .catch((e) => {
         console.error("Error object:", e);
         if (e.response) {
