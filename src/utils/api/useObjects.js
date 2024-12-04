@@ -55,15 +55,19 @@ export const useObjects = () => {
       });
   };
 
-  //   const store = async (data: Partial<servicePropsSend>) => {
-  //     setLoading(true);
-  //     await axiosRequest("POST", "service", undefined, data).then(() =>
-  //       fetchAll()
-  //     );
-  //     // .catch((e) => {
-  //     //   console.log(e.response.data.errors)
-  //     // })
-  //   };
+  const store = async (data) => {
+    setLoading(true);
+    return await axiosRequest("POST", "objects", data)
+      // .then(() =>
+      //   fetchAll()
+      // );
+      .catch((e) => {
+        console.log(e.response.data.errors);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   //   const update = async (data: Partial<servicePropsSend>, id: number) => {
   //     setLoading(true);
@@ -84,7 +88,7 @@ export const useObjects = () => {
     isErr,
     fetchAll,
     fetchbyId,
-    // store,
+    store,
     // update,
     // deleteData,
     setPageLoaded,
