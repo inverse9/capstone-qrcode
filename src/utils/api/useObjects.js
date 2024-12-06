@@ -76,10 +76,10 @@ export const useObjects = () => {
   //     );
   //   };
 
-  //   const deleteData = async (id: number) => {
-  //     setLoading(true);
-  //     await axiosRequest("DELETE", `service/${id}`).then(() => fetchAll());
-  //   };
+  const deleteData = async (id) => {
+    setLoading(true);
+    await axiosRequest("DELETE", `objects/${id}`);
+  };
 
   return {
     object,
@@ -90,7 +90,7 @@ export const useObjects = () => {
     fetchbyId,
     store,
     // update,
-    // deleteData,
+    deleteData,
     setPageLoaded,
     isPageLoaded,
     controller,

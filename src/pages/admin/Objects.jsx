@@ -17,8 +17,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { useObjects } from "../../utils/api/useObjects";
 
-const ROOTPATH = "http://localhost:5173";
-// const ROOTPATH = "https://capstone-qrcode.vercel.app";
+const ROOTPATH = "http://realdev1.psti.undiknas.ac.id";
 
 const Object = () => {
   const navigate = useNavigate();
