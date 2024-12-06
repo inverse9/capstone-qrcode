@@ -11,6 +11,7 @@ import Objects from "./pages/admin/Objects.jsx";
 import CreateObject from "./pages/admin/CreateObject.jsx";
 
 import "./index.css";
+import Report from "./pages/admin/Report.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/object/*",
         element: <CreateObject />,
+      },
+      {
+        path: "/report",
+        element: <Report />,
       },
     ],
   },
