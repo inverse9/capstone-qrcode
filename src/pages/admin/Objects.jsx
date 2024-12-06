@@ -22,7 +22,8 @@ const ROOTPATH = "http://realdev1.psti.undiknas.ac.id";
 const Object = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const { fetchAll, controller, isPageLoaded, objects } = useObjects();
+  const { fetchAll, controller, isPageLoaded, objects, deleteData } =
+    useObjects();
   const [selectedObject, setselectedObject] = useState({});
   const [size, setSize] = useState(400);
   const [isOpen, setIsOpen] = useState(false);
@@ -33,9 +34,17 @@ const Object = () => {
     setIsOpen(true);
   };
 
-  const handleDelete = (object) => {
+  const handleDelete = async (object) => {
     setselectedObject(object);
     setIsOpenDelete(true);
+  };
+
+  const submitDelete = async () => {
+    await deleteData(selectedObject.id).then(() => {
+      setIsOpenDelete(false);
+
+      fetchAll(2);
+    });
   };
 
   useEffect(() => {
@@ -206,7 +215,7 @@ const Object = () => {
                   <div className="bg-gray-50 px-4 py-3 flex flex-row-reverse sm:px-6 gap-2">
                     <button
                       type="button"
-                      onClick={() => setIsOpenDelete(false)}
+                      onClick={() => submitDelete()}
                       className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 sm:ml-3 sm:w-auto"
                     >
                       Hapus!
