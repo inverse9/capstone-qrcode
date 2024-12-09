@@ -2,7 +2,6 @@ import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Superadmin from "./pages/super-admin/index.jsx";
-import Admin from "./pages/admin/index.jsx";
 import Layout from "./pages/Layout.jsx";
 import ScannedObject from "./pages/public-user/scanned-object/index.jsx";
 import Login from "./pages/Login.jsx";
@@ -12,6 +11,7 @@ import CreateObject from "./pages/admin/CreateObject.jsx";
 
 import "./index.css";
 import Report from "./pages/admin/Report.jsx";
+import Dashboard from "./pages/admin/index.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
         element: <Superadmin />,
       },
       {
-        index: true,
-        element: <Admin />,
+        path: "/dashboard",
+        element: <Dashboard />,
       },
       {
         path: "/objects",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/login",
+    index: true,
     element: <Login />,
   },
   {

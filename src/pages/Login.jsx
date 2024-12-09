@@ -29,15 +29,21 @@ const Login = () => {
         </div>
         <section className="relative">
           <div>
-            <span className="text-sm ">Email Address</span>
+            <label className="text-sm" htmlFor="email">
+              Email Address
+            </label>
             <input
+              id="email"
               className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
               type="text"
             />
           </div>
           <div className="mt-4">
-            <span className="text-sm ">Password</span>
+            <label className="text-sm" htmlFor="password">
+              Password
+            </label>
             <input
+              id="password"
               className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
               type="password"
             />
@@ -48,16 +54,20 @@ const Login = () => {
             </span>
           </div>
 
-          <button className="rounded-full py-3 w-2/5 px-4 bg-blue-600 mt-12 text-slate-50 hover:bg-blue-600/90">
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="rounded-full py-3 w-2/5 px-4 bg-blue-600 mt-12 text-slate-50 hover:bg-blue-600/90"
+          >
             Sign in
           </button>
           <div className="mt-4">
-            <span
-              className="text-sm text-slate-600"
-              onClick={() => navigate("/signup")}
-            >
+            <span className="text-sm text-slate-600">
               Don{"'"}t have an acount?{" "}
-              <span className="hover:underline cursor-pointer">
+              <span
+                role="link"
+                onClick={() => navigate("/signup")}
+                className="hover:underline cursor-pointer"
+              >
                 Sign Up Here
               </span>
             </span>

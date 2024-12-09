@@ -3,7 +3,7 @@ import { ChartPie } from "../../components/charts/ChartPie";
 import ChartBar from "../../components/charts/ChartBar";
 import { ChartLine } from "../../components/charts/ChartLine";
 
-const Admin = () => {
+const Dashboard = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col lg:flex-row gap-4 md:h-[500px] h-[1000px]">
@@ -50,7 +50,7 @@ const Admin = () => {
       <div className="flex">
         <div className="w-full">
           <h1 className="font-semibold">
-            Jumlah Object yang di scan dalam waktu 1 minggu terakhir
+            Jumlah Object yang di scan dalam waktu 1 minggu terakhir2
           </h1>
           <div className=" w-full h-[400px] border p-4 bg-white rounded-lg">
             <div className="flex flex-col size-full">
@@ -63,4 +63,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Dashboard;

@@ -3,7 +3,7 @@ import { axiosRequest } from "../axios";
 
 export const useObjects = () => {
   const controller = new AbortController();
-  const [objects, setObjects] = useState();
+  const [objects, setObjects] = useState([]);
   const [object, setObject] = useState();
   const [isErr, setErr] = useState(false);
   const [isLoading, setLoading] = useState(false);

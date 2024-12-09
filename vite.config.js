@@ -7,5 +7,10 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
+  test: {
+    globals: true, // Enable global test functions like describe, test, it, etc.
+    environment: "jsdom", // Set environment to jsdom (for browser-like tests)
+    setupFiles: "./vitest.setup.js",
+  },
   plugins: [react()],
 });

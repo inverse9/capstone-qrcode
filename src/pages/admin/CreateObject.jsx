@@ -27,6 +27,7 @@ const CreateObject = () => {
     const objectData = { user_id: 1, nama: objectName };
 
     await store(objectData).then((v) => {
+      // eslint-disable-next-line no-unused-vars
       const propertiesData = components.map((component, _) => ({
         object_id: v.data.id,
         ...component,
