@@ -34,12 +34,12 @@ describe("LoginScreen", () => {
     expect(window.location.pathname).toBe("/dashboard");
   });
 
-  test.skip("should redirect to sign up page", () => {
-    render(<RouterProvider router={router} />);
+  // test.skip("should redirect to sign up page", () => {
+  //   render(<RouterProvider router={router} />);
 
-    const linkElement = screen.getByRole("link", { name: /Sign Up Here/i });
-    fireEvent.click(linkElement);
+  //   const linkElement = screen.getByRole("link", { name: /Sign Up Here/i });
+  //   fireEvent.click(linkElement);
 
-    expect(window.location.pathname).toBe("/signup");
-  });
+  //   expect(window.location.pathname).toBe("/signup");
+  // });
 });
