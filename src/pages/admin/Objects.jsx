@@ -16,6 +16,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/20/solid";
 import { useObjects } from "../../utils/api/useObjects";
+import { formatDate, formatTime } from "../../utils/date";
 
 const ROOTPATH = "http://realdev1.psti.undiknas.ac.id";
 
@@ -97,7 +98,9 @@ const Object = () => {
                         </div>
                       </td>
                       <td className="p-3">
-                        <div className="">{v.date_time}</div>
+                        <div className="">
+                          {formatTime(v.date_time)} {formatDate(v.date_time)}
+                        </div>
                       </td>
 
                       <td className="p-3 flex gap-2">
