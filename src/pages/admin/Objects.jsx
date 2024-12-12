@@ -21,9 +21,10 @@ const ROOTPATH = "http://realdev1.psti.undiknas.ac.id";
 
 const Object = () => {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const { fetchAll, controller, isPageLoaded, objects, deleteData } =
-    useObjects();
+  const { fetchAll, isPageLoaded, objects, deleteData } = useObjects();
   const [selectedObject, setselectedObject] = useState({});
   const [size, setSize] = useState(400);
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const Object = () => {
     await deleteData(selectedObject.id).then(() => {
       setIsOpenDelete(false);
 
-      fetchAll(2);
+      fetchAll(user.id);
     });
   };
 
@@ -52,7 +53,7 @@ const Object = () => {
   }, [isMobile]);
 
   useEffect(() => {
-    fetchAll(2);
+    fetchAll(user.id);
     // return () => {
     //   controller.abort();
     // };

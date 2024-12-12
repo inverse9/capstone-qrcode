@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Separator from "../components/Separator";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/api/useAuth";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { authentication, isLoading } = useAuth();
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+
+  const handleSubmit = async () => {
+    await authentication(credentials).then((v) => {
+      const test = {
+        id: 2,
+        token: v.data.token,
+      };
+
+      saveSess(test);
+      if (test.id === 1) {
+        navigate("/superadmin");
+      } else {
+        navigate("/dashboard");
+      }
+    });
+  };
+
+  const saveSess = (response) => {
+    localStorage.setItem("user", JSON.stringify({ id: response.id }));
+    localStorage.setItem("token", response.token);
+  };
 
   return (
     <div className="h-screen flex flex-col md:flex-row">
@@ -33,6 +57,13 @@ const Login = () => {
               Email Address
             </label>
             <input
+              value={credentials.email}
+              onChange={(v) => {
+                setCredentials((prv) => ({
+                  ...prv,
+                  email: v.target.value,
+                }));
+              }}
               id="email"
               className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
               type="text"
@@ -44,6 +75,13 @@ const Login = () => {
             </label>
             <input
               id="password"
+              value={credentials.password}
+              onChange={(v) => {
+                setCredentials((prv) => ({
+                  ...prv,
+                  password: v.target.value,
+                }));
+              }}
               className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
               type="password"
             />
@@ -55,8 +93,12 @@ const Login = () => {
           </div>
 
           <button
-            onClick={() => navigate("/dashboard")}
-            className="rounded-full py-3 w-2/5 px-4 bg-blue-600 mt-12 text-slate-50 hover:bg-blue-600/90"
+            onClick={() => handleSubmit()}
+            className={`${
+              isLoading
+                ? "active:outline-slate-600 bg-slate-600 hover:bg-slate-600/90 "
+                : "active:outline-blue-600 bg-blue-600 hover:bg-blue-600/90 "
+            } rounded-full py-3 w-2/5 px-4 outline outline-offset-1 mt-12 text-slate-50 `}
           >
             Sign in
           </button>
@@ -66,7 +108,7 @@ const Login = () => {
               <span
                 role="link"
                 onClick={() => navigate("/signup")}
-                className="hover:underline cursor-pointer"
+                className="hover:underline hover:text-blue-600 cursor-pointer"
               >
                 Sign Up Here
               </span>

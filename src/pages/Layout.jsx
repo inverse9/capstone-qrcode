@@ -9,6 +9,10 @@ const Layout = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
+  const clearSess = async () => {
+    localStorage.clear();
+  };
+
   const handleSidebarView = ({ isSidebarOpen, isMobile, refs }) => {
     if (!isSidebarOpen) {
       if (isMobile) {
@@ -49,6 +53,25 @@ const Layout = () => {
     }
   };
 
+  const handleMenu = () => {
+    let menu;
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user.id !== 1) {
+      menu = [
+        { menu: "Home", to: "/dashboard" },
+        { menu: "Object", to: "/objects" },
+        { menu: "Laporan", to: "/report" },
+        { menu: "Logout", to: "/" },
+      ];
+    } else {
+      menu = [
+        { menu: "Home", to: "/superadmin" },
+        { menu: "Logout", to: "/" },
+      ];
+    }
+    return menu;
+  };
+
   useEffect(() => {
     handleSidebarView({ isSidebarOpen, isMobile, refs: side });
     handleMainView({ isSidebarOpen, isMobile, refs: main });
@@ -80,10 +103,26 @@ const Layout = () => {
                     Menu
                   </h3>
                   <div className="border-l ">
-                    {/* {Object.values(props[title]).map((menu, i) => ( */}
-                    <li className="my-1">
+                    {handleMenu().map((v, i) => (
                       <NavLink
-                        to={"/"}
+                        onClick={() => v.menu === "Logout" && clearSess()}
+                        key={i}
+                        to={v.to}
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          `flex p-1 pl-3 border-l -ml-px  ${
+                            isActive
+                              ? "text-primary-600 font-medium  text-blue-700 border-blue-500"
+                              : "hover:text-slate-700 hover:border-l-slate-700"
+                          }`
+                        }
+                      >
+                        <span>{v.menu}</span>
+                      </NavLink>
+                    ))}
+                    {/* <li className="my-1">
+                      <NavLink
+                        to={"/dashboard"}
                         // target={menu.target}
                         // rel={menu.rel}
                         role="menuitem"
@@ -130,7 +169,8 @@ const Layout = () => {
                       </NavLink>
 
                       <NavLink
-                        to={"/login"}
+                        to={"/"}
+                       
                         // target={menu.target}
                         // rel={menu.rel}
                         role="menuitem"
@@ -144,8 +184,7 @@ const Layout = () => {
                       >
                         <span>Logout</span>
                       </NavLink>
-                    </li>
-                    {/* ))} */}
+                    </li> */}
                   </div>
                 </div>
               </ul>
@@ -177,11 +216,6 @@ const Layout = () => {
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
               </svg>
             </button>
-            {/* {!isMobile && (
-        <div className="text-lg font-semibold ml-2 text-primary-500">
-          {activePage === 0 ? "Ngantre" : "Perjanjian"}
-        </div>
-      )} */}
             <div
               //   ref={profile}
               className={` transition-all duration-500 ease-in-out ml-auto mr-0 md:mr-64`}

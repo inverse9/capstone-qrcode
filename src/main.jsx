@@ -14,7 +14,6 @@ import Report from "./pages/admin/Report.jsx";
 import Dashboard from "./pages/admin/index.jsx";
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <Layout />,
     children: [
       {
@@ -41,6 +40,7 @@ const router = createBrowserRouter([
   },
   {
     index: true,
+    path: "/",
     element: <Login />,
   },
   {

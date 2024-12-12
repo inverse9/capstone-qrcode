@@ -8,6 +8,7 @@ import { useObjectProperties } from "../../utils/api/useObjectProperties";
 
 const CreateObject = () => {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const { store } = useObjects();
   const { store: storeProperties, isLoading } = useObjectProperties();
@@ -24,8 +25,7 @@ const CreateObject = () => {
   };
 
   const onSubmit = async () => {
-    const objectData = { user_id: 1, nama: objectName };
-
+    const objectData = { user_id: user.id, nama: objectName };
     await store(objectData).then((v) => {
       // eslint-disable-next-line no-unused-vars
       const propertiesData = components.map((component, _) => ({
@@ -35,10 +35,6 @@ const CreateObject = () => {
       storeProperties(propertiesData).then(() => navigate("/objects"));
     });
   };
-
-  // useEffect(() => {
-  //   console.log(components);
-  // }, [components]);
 
   return (
     <div className="px-10">
@@ -104,7 +100,7 @@ const CreateObject = () => {
         <button
           onClick={() => (isLoading ? "" : onSubmit())}
           className={`${isLoading ? "bg-slate-600" : "bg-blue-600"}
-            w-fit lg:w-2/12 py-2 px-4 outline active:outline-blue-600 outline-offset-1  rounded-lg text-slate-100 hover:bg-blue-700 mt-4`}
+            w-fit lg:w-2/12 py-2 px-4 outline active:outline-blue-600 outline-offset-1 rounded-lg text-slate-100 hover:bg-blue-700 mt-4`}
         >
           Submit
         </button>
