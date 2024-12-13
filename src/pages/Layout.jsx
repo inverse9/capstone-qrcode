@@ -66,6 +66,7 @@ const Layout = () => {
     } else {
       menu = [
         { menu: "Home", to: "/superadmin" },
+        { menu: "List user", to: "/list-user" },
         { menu: "Logout", to: "/" },
       ];
     }
@@ -120,71 +121,6 @@ const Layout = () => {
                         <span>{v.menu}</span>
                       </NavLink>
                     ))}
-                    {/* <li className="my-1">
-                      <NavLink
-                        to={"/dashboard"}
-                        // target={menu.target}
-                        // rel={menu.rel}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `flex p-1 pl-3 border-l -ml-px  ${
-                            isActive
-                              ? "text-primary-600 font-medium  text-blue-700 border-blue-500"
-                              : "hover:text-slate-700 hover:border-l-slate-700"
-                          }`
-                        }
-                      >
-                        <span>Home</span>
-                      </NavLink>
-                      <NavLink
-                        to={"/objects"}
-                        // target={menu.target}
-                        // rel={menu.rel}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `flex p-1 pl-3 border-l -ml-px ${
-                            isActive
-                              ? "text-primary-600 font-medium text-blue-700 border-blue-500"
-                              : "hover:text-slate-700 hover:border-l-slate-700"
-                          }`
-                        }
-                      >
-                        <span>Object</span>
-                      </NavLink>
-
-                      <NavLink
-                        to={"/report"}
-                        // target={menu.target}
-                        // rel={menu.rel}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `flex p-1 pl-3 border-l -ml-px ${
-                            isActive
-                              ? "text-primary-600 font-medium  text-blue-700 border-blue-500"
-                              : "hover:text-slate-700 hover:border-l-slate-700"
-                          }`
-                        }
-                      >
-                        <span>Laporan</span>
-                      </NavLink>
-
-                      <NavLink
-                        to={"/"}
-                       
-                        // target={menu.target}
-                        // rel={menu.rel}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `flex p-1 pl-3 border-l -ml-px ${
-                            isActive
-                              ? "text-primary-600 font-medium  text-blue-700 border-blue-500"
-                              : "hover:text-slate-700 hover:border-l-slate-700"
-                          }`
-                        }
-                      >
-                        <span>Logout</span>
-                      </NavLink>
-                    </li> */}
                   </div>
                 </div>
               </ul>
@@ -193,15 +129,8 @@ const Layout = () => {
         </div>
         <div
           ref={main}
-          className={`transition-all duration-500 ease-in-out flex flex-1 flex-col ml-0 md:ml-64
-    
-              `}
+          className={`transition-all duration-500 ease-in-out flex flex-1 flex-col ml-0 md:ml-64`}
         >
-          {/* <Navbar2
-                isSidebarOpen={isSidebarOpen}
-                setSidebar={setSidebarOpen}
-                // isMobile={isMobile}
-              /> */}
           <section className="z-10 fixed h-14 w-full bg-white border-b flex items-center px-4">
             <button
               className=" flex items-center rounded hover:ring-red-200 hover:ring-2 focus:ring-red-100"
@@ -225,7 +154,6 @@ const Layout = () => {
           </section>
           <div className="pt-20 min-h-screen relative bg-slate-100">
             <div className={`container h-full mx-auto px-4 `}>
-              {/* {sessionData.id !== 3 && <Notifications />} */}
               <Outlet />
             </div>
           </div>

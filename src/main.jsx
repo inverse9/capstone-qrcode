@@ -12,6 +12,7 @@ import CreateObject from "./pages/admin/CreateObject.jsx";
 import "./index.css";
 import Report from "./pages/admin/Report.jsx";
 import Dashboard from "./pages/admin/index.jsx";
+import ListUser from "./pages/super-admin/ListUser.jsx";
 const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/superadmin",
         element: <Superadmin />,
+      },
+      {
+        path: "/list-user",
+        element: <ListUser />,
       },
       {
         path: "/dashboard",
