@@ -3,6 +3,7 @@ import React from "react";
 const ListUser = () => {
   return (
     <div>
+      User
       <table className=" w-full text-base bg-white shadow rounded-2xl mt-6">
         <thead className="text-slate-800 border-b sticky top-14 bg-white rounded-t-2xl">
           <tr className="text-left ">
@@ -31,7 +32,6 @@ const ListUser = () => {
             </td>
 
             <td className="p-3 flex gap-2">
-              asd
               {/* <button
                           onClick={() => handleQR(v)}
                           className="rounded-lg p-2 border border-slate-300 hover:bg-blue-500 hover:text-slate-50 hover:border-blue-500"

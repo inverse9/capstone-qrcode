@@ -86,11 +86,6 @@ const Login = () => {
               type="password"
             />
           </div>
-          <div className="flex justify-end ">
-            <span className="font-semibold absolute right-0 text-sm text-slate-600  mt-2 cursor-pointer hover:underline">
-              Forgot Password?
-            </span>
-          </div>
 
           <button
             onClick={() => handleSubmit()}
