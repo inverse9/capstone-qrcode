@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import {
   MDXEditor,
@@ -23,7 +24,7 @@ import {
 import "@mdxeditor/editor/style.css";
 // import "./Md.css";
 
-const MarkdownEditor = () => {
+const MarkdownEditor = ({ index, value, setValue }) => {
   async function imageUploadHandler(image) {
     const formData = new FormData();
     formData.append("image", image);
@@ -41,7 +42,14 @@ const MarkdownEditor = () => {
     <div className="object-wrapper">
       <MDXEditor
         className="border border-slate-400 rounded-lg"
-        markdown="..."
+        markdown={value[index].isi}
+        onChange={(val) => {
+          setValue((prev) =>
+            prev.map((item, idx) =>
+              idx === index ? { ...item, isi: val } : item
+            )
+          );
+        }}
         contentEditableClassName="prose"
         imagePlugin
         plugins={[

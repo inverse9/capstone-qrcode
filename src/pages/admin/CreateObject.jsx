@@ -5,18 +5,65 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useObjects } from "../../utils/api/useObjects";
 import { useNavigate } from "react-router-dom";
 import { useObjectProperties } from "../../utils/api/useObjectProperties";
+import { useObjectImage } from "../../utils/api/useObjectImage";
 
 const CreateObject = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
-
   const { store } = useObjects();
-  const { store: storeProperties, isLoading } = useObjectProperties();
+  const { store: storeProperties } = useObjectProperties();
+  const { store: storeImages, isLoading } = useObjectImage();
   const [objectName, setobjectName] = useState("");
   const [components, setComponents] = useState([{ judul: "", isi: "1" }]);
+  const [images, setImages] = useState([]);
+  const [previews, setPreviews] = useState([]);
+
+  const handleImageChange = (e) => {
+    const files = Array.from(e.target.files);
+
+    setImages(files);
+
+    // Create previews for all selected images
+    const filePreviews = files.map((file) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      return new Promise((resolve) => {
+        reader.onloadend = () => resolve(reader.result);
+      });
+    });
+
+    Promise.all(filePreviews).then((previews) => setPreviews(previews));
+  };
+
+  // const uploadImages = async () => {
+  //   if (images.length === 0) {
+  //     alert("No images selected!");
+  //     return;
+  //   }
+
+  //   const formData = new FormData();
+  //   images.forEach((image, index) => formData.append(`image_${index}`, image));
+
+  //   try {
+  //     const response = await fetch("YOUR_API_ENDPOINT", {
+  //       method: "POST",
+  //       body: formData,
+  //     });
+
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       alert("Images uploaded successfully!");
+  //       console.log("Server Response:", data);
+  //     } else {
+  //       alert("Failed to upload images.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error uploading images:", error);
+  //   }
+  // };
 
   const handleAddComponent = () => {
-    const newComponent = { judul: "", isi: "qqq" };
+    const newComponent = { judul: "", isi: "" };
     setComponents([...components, newComponent]);
   };
 
@@ -25,14 +72,25 @@ const CreateObject = () => {
   };
 
   const onSubmit = async () => {
+    let objectId = 0;
     const objectData = { user_id: user.id, nama: objectName };
     await store(objectData).then((v) => {
-      // eslint-disable-next-line no-unused-vars
+      objectId = v.data.id;
       const propertiesData = components.map((component, _) => ({
-        object_id: v.data.id,
+        object_id: objectId,
         ...component,
       }));
-      storeProperties(propertiesData).then(() => navigate("/objects"));
+      storeProperties(propertiesData).then(() => {
+        if (images.length === 0) {
+          navigate("/objects");
+        } else {
+          const imgData = {
+            object_id: objectId,
+            src: images[0].name,
+          };
+          storeImages(imgData).then(() => navigate("/objects"));
+        }
+      });
     });
   };
 
@@ -54,9 +112,9 @@ const CreateObject = () => {
         {components.map((_, i) => (
           <section
             key={i}
-            className="bg-white rounded-md w-full p-4 mt-6 shadow relative"
+            className="bg-white rounded-md w-full p-4 mt-4 shadow relative"
           >
-            {i > 1 && (
+            {i > 0 && (
               <span
                 onClick={() => handleRemoveComponent(i)}
                 className="cursor-pointer hover:text-red-400"
@@ -82,7 +140,11 @@ const CreateObject = () => {
             </div>
             <div className="mt-4">
               <span className="text-sm ">Isi</span>
-              <MarkdownEditor />
+              <MarkdownEditor
+                index={i}
+                value={components}
+                setValue={setComponents}
+              />
             </div>
             {i === components.length - 1 && (
               <button
@@ -95,7 +157,27 @@ const CreateObject = () => {
           </section>
         ))}
       </div>
-
+      <section className="bg-white rounded-md w-full p-4 mt-4 shadow">
+        <span className="text-sm ">Gambar</span>
+        <div>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleImageChange}
+          />
+          <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+            {previews.map((preview, index) => (
+              <img
+                key={index}
+                src={preview}
+                alt={`Preview ${index + 1}`}
+                style={{ width: "100px" }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
       <div className="text-right">
         <button
           onClick={() => (isLoading ? "" : onSubmit())}
