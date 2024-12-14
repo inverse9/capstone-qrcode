@@ -4,7 +4,7 @@ import axios from "axios";
 vitest.mock("axios");
 
 describe("API call", () => {
-  const URL = "http://realdev1.psti.undiknas.ac.id:3000/api/objects";
+  const URL = `${import.meta.env.VITE_API_URL}/objects`;
   const config = {
     params: {
       userId: 2,

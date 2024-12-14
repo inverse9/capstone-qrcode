@@ -19,7 +19,7 @@ export const useObjects = () => {
       },
     };
 
-    await axiosRequest("GET", "objects", config)
+    await axiosRequest("GET", "/objects", config)
       .then((v) => setObjects(v.data))
       .finally(() => {
         setLoading(false);
@@ -57,7 +57,7 @@ export const useObjects = () => {
 
   const store = async (data) => {
     setLoading(true);
-    return await axiosRequest("POST", "objects", data)
+    return await axiosRequest("POST", "/objects", data)
       // .then(() =>
       //   fetchAll()
       // );
@@ -78,7 +78,7 @@ export const useObjects = () => {
 
   const deleteData = async (id) => {
     setLoading(true);
-    await axiosRequest("DELETE", `objects/${id}`);
+    await axiosRequest("DELETE", `/objects/${id}`);
   };
 
   return {

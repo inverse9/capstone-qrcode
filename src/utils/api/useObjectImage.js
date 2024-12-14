@@ -56,7 +56,7 @@ export const useObjectImage = () => {
 
   const store = async (data) => {
     setLoading(true);
-    return await axiosRequest("POST", "image", data)
+    return await axiosRequest("POST", "/image", data)
       // .then(() =>
       //   fetchAll()
       // );

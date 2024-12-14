@@ -3,8 +3,6 @@ import { axiosRequest } from "../axios";
 
 export const useObjectProperties = () => {
   const controller = new AbortController();
-  // const [objects, setObjects] = useState();
-  // const [object, setObject] = useState();
   const [isErr, setErr] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isPageLoaded, setPageLoaded] = useState(false);
@@ -57,7 +55,7 @@ export const useObjectProperties = () => {
 
   const store = async (data) => {
     setLoading(true);
-    await axiosRequest("POST", "properties", data)
+    await axiosRequest("POST", "/properties", data)
       // .then(() =>
       //   fetchAll()
       // );

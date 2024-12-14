@@ -9,7 +9,7 @@ export const useAuth = () => {
 
   const authentication = async (data) => {
     setLoading(true);
-    return await axiosRequest("POST", "auth/login", data)
+    return await axiosRequest("POST", "/auth/login", data)
       .catch((e) => {
         console.log(e.response.data.errors);
         setErr(e.response.data.errors);

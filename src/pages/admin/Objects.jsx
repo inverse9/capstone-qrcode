@@ -19,8 +19,6 @@ import {
 import { useObjects } from "../../utils/api/useObjects";
 import { formatDate, formatTime } from "../../utils/date";
 
-const ROOTPATH = "http://realdev1.psti.undiknas.ac.id";
-
 const Object = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -161,7 +159,9 @@ const Object = () => {
                       </div>
                       <div className="mt-2 aspect-square w-full flex items-center justify-center border-2 p-2 border-slate-700 rounded-lg">
                         <QRcode
-                          text={`${ROOTPATH}/scan/${selectedObject.id}`}
+                          text={`${import.meta.env.VITE_ROOT_PATH}/scan/${
+                            selectedObject.id
+                          }`}
                           size={size}
                         />
                       </div>
