@@ -10,13 +10,8 @@ const Login = () => {
 
   const handleSubmit = async () => {
     await authentication(credentials).then((v) => {
-      const test = {
-        id: 1,
-        token: v.data.token,
-      };
-
-      saveSess(test);
-      if (test.id === 1) {
+      saveSess(v.data);
+      if (v.data.id === 1) {
         navigate("/superadmin");
       } else {
         navigate("/dashboard");
@@ -25,7 +20,10 @@ const Login = () => {
   };
 
   const saveSess = (response) => {
-    localStorage.setItem("user", JSON.stringify({ id: response.id }));
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ id: response.id, email: response.email })
+    );
     localStorage.setItem("token", response.token);
   };
 
