@@ -18,13 +18,15 @@ import {
 } from "@heroicons/react/20/solid";
 import { useObjects } from "../../utils/api/useObjects";
 import { formatDate, formatTime } from "../../utils/date";
+import Button from "../../components/Button";
 
 const Object = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const { fetchAll, isPageLoaded, objects, deleteData } = useObjects();
+  const { fetchAll, isPageLoaded, objects, deleteData, isLoading } =
+    useObjects();
   const [selectedObject, setselectedObject] = useState({});
   const [size, setSize] = useState(400);
   const [isOpen, setIsOpen] = useState(false);
@@ -59,16 +61,17 @@ const Object = () => {
     // };
   }, []);
 
-  if (isPageLoaded) {
+  if (isPageLoaded && !isLoading) {
     return (
       <div className="px-2 lg:px-10">
         <div>
-          <button
+          <Button
+            className={"lg:w-2/12 mt-0"}
             onClick={() => navigate("/object")}
-            className="w-fit lg:w-2/12 py-2 px-4 bg-blue-600 rounded-lg text-slate-100 hover:bg-blue-700"
           >
             Tambah Object
-          </button>
+          </Button>
+          {/* <button className="w-fit lg:w-2/12 py-2 px-4 bg-blue-600 rounded-lg text-slate-100 hover:bg-blue-700"></button> */}
           {objects && objects.length > 0 ? (
             <>
               <table className=" w-full text-base bg-white shadow rounded-2xl mt-6">
@@ -218,13 +221,16 @@ const Object = () => {
                     </div>
                   </div>
                   <div className="bg-gray-50 px-4 py-3 flex flex-row-reverse sm:px-6 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => submitDelete()}
-                      className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 sm:ml-3 sm:w-auto"
+                    <Button
+                      isLoading={isLoading}
+                      onClick={() => (isLoading ? "" : submitDelete())}
+                      className={
+                        "inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 sm:ml-3 sm:w-auto"
+                      }
                     >
                       Hapus!
-                    </button>
+                    </Button>
+
                     <button
                       type="button"
                       onClick={() => setIsOpenDelete(false)}

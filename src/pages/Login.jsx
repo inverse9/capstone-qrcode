@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import Separator from "../components/Separator";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/api/useAuth";
+import Button from "../components/Button";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { authentication, isLoading } = useAuth();
+  const { authentication, isLoading, err } = useAuth();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     await authentication(credentials).then((v) => {
       saveSess(v.data);
       if (v.data.id === 1) {
@@ -39,62 +41,70 @@ const Login = () => {
       <div className=" bg-slate-50 flex-1 flex flex-col justify-center p-8 py-6 md:p-20">
         <div className="font-bold text-2xl mb-10">Sign in</div>
         <div className="flex flex-col gap-4">
-          <button className="rounded-full w-full border border-slate-600 py-3 hover:bg-slate-200/50">
-            Continue with Google
+          <button className="rounded-full w-full border border-slate-600 py-3 hover:bg-slate-200/50 flex gap-2 items-center justify-center">
+            <img
+              className="size-6"
+              src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+              alt=""
+            />
+            <span> Continue with Google</span>
           </button>
-          <button className="rounded-full w-full border border-slate-600 py-3 hover:bg-slate-200/50">
-            Continue with Twitter
+          <button className="rounded-full w-full border border-slate-600 py-3 hover:bg-slate-200/50 flex gap-2 items-center justify-center">
+            <img
+              className="size-6"
+              src="https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
+              alt=""
+            />
+
+            <span>Continue with Twitter</span>
           </button>
         </div>
         <div className="flex gap-x-4 items-center my-10">
           <Separator /> OR <Separator />
         </div>
         <section className="relative">
-          <div>
-            <label className="text-sm" htmlFor="email">
-              Email Address
-            </label>
-            <input
-              value={credentials.email}
-              onChange={(v) => {
-                setCredentials((prv) => ({
-                  ...prv,
-                  email: v.target.value,
-                }));
-              }}
-              id="email"
-              className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
-              type="text"
-            />
-          </div>
-          <div className="mt-4">
-            <label className="text-sm" htmlFor="password">
-              Password
-            </label>
-            <input
-              id="password"
-              value={credentials.password}
-              onChange={(v) => {
-                setCredentials((prv) => ({
-                  ...prv,
-                  password: v.target.value,
-                }));
-              }}
-              className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
-              type="password"
-            />
-          </div>
-
-          <button
-            onClick={() => handleSubmit()}
-            className={`${
-              isLoading
-                ? "active:outline-slate-600 bg-slate-600 hover:bg-slate-600/90 "
-                : "active:outline-blue-600 bg-blue-600 hover:bg-blue-600/90 "
-            } rounded-full py-3 w-2/5 px-4 outline outline-offset-1 mt-12 text-slate-50 `}
-          >
-            Sign in
-          </button>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label className="text-sm" htmlFor="email">
+                Email Address
+              </label>
+              <input
+                value={credentials.email}
+                onChange={(v) => {
+                  setCredentials((prv) => ({
+                    ...prv,
+                    email: v.target.value,
+                  }));
+                }}
+                id="email"
+                className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
+                type="text"
+              />
+            </div>
+            <div className="mt-4">
+              <label className="text-sm" htmlFor="password">
+                Password
+              </label>
+              <input
+                id="password"
+                value={credentials.password}
+                onChange={(v) => {
+                  setCredentials((prv) => ({
+                    ...prv,
+                    password: v.target.value,
+                  }));
+                }}
+                className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50"
+                type="password"
+              />
+            </div>
+            {err && (
+              <div className="mb-4 mt-2 text-red-500 absolute">*{err}</div>
+            )}
+            <Button isLoading={isLoading} type="submit">
+              Sign in
+            </Button>
+          </form>
           <div className="mt-4">
             <span className="text-sm text-slate-600">
               Don{"'"}t have an acount?{" "}

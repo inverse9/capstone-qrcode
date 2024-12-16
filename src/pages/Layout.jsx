@@ -133,7 +133,7 @@ const Layout = () => {
         >
           <section className="z-10 fixed h-14 w-full bg-white border-b flex items-center px-4">
             <button
-              className=" flex items-center rounded hover:ring-red-200 hover:ring-2 focus:ring-red-100"
+              className=" flex items-center rounded hover:ring-blue-200 hover:ring-2 focus:ring-blue-100"
               onClick={() => setSidebarOpen(!isSidebarOpen)}
             >
               <svg

@@ -3,7 +3,7 @@ import { axiosRequest } from "../axios";
 
 export const useAuth = () => {
   const controller = new AbortController();
-  const [isErr, setErr] = useState(false);
+  const [err, setErr] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [isPageLoaded, setPageLoaded] = useState(false);
 
@@ -11,8 +11,8 @@ export const useAuth = () => {
     setLoading(true);
     return await axiosRequest("POST", "/auth/login", data)
       .catch((e) => {
-        console.log(e.response.data.errors);
-        setErr(e.response.data.errors);
+        // console.log(e.response.data.message);
+        setErr(e.response.data.message);
       })
       .finally(() => {
         setLoading(false);
@@ -21,7 +21,7 @@ export const useAuth = () => {
 
   return {
     isLoading,
-    isErr,
+    err,
     authentication,
     // update,
     setPageLoaded,

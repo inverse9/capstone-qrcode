@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MarkdownEditor from "../../components/MarkdownEditor";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useObjects } from "../../utils/api/useObjects";
 import { useNavigate } from "react-router-dom";
 import { useObjectProperties } from "../../utils/api/useObjectProperties";
 import { useObjectImage } from "../../utils/api/useObjectImage";
+import Button from "../../components/Button";
 
 const CreateObject = () => {
   const navigate = useNavigate();
@@ -148,12 +149,12 @@ const CreateObject = () => {
               />
             </div>
             {i === components.length - 1 && (
-              <button
-                className="py-2 px-3 w-fit outline active:outline-blue-600 outline-offset-1 bg-blue-600 mt-2 rounded-lg text-slate-100 hover:bg-blue-700"
+              <Button
+                className={"w-fit mt-2"}
                 onClick={() => handleAddComponent()}
               >
                 Tambah kategori lain
-              </button>
+              </Button>
             )}
           </section>
         ))}
@@ -180,13 +181,13 @@ const CreateObject = () => {
         </div>
       </section>
       <div className="text-right">
-        <button
+        <Button
+          className={"w-fit lg:w-2/12"}
           onClick={() => (isLoading ? "" : onSubmit())}
-          className={`${isLoading ? "bg-slate-600" : "bg-blue-600"}
-            w-fit lg:w-2/12 py-2 px-4 outline active:outline-blue-600 outline-offset-1 rounded-lg text-slate-100 hover:bg-blue-700 mt-4`}
+          isLoading={isLoading}
         >
           Submit
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DateRangePicker from "../../components/DateRangePicker";
 import DropdownSelect from "../../components/DropdownSelect";
+import Button from "../../components/Button";
 
 const Report = () => {
   const [endDate, setEndDate] = useState(new Date());
@@ -28,12 +29,7 @@ const Report = () => {
           setStartDate={setStartDate}
         />
         <div className="text-right">
-          <button
-            className={`bg-blue-600
-            w-fit lg:w-2/12 py-2 px-4 outline active:outline-blue-600 outline-offset-1  rounded-lg text-slate-100 hover:bg-blue-700 mt-4`}
-          >
-            Submit
-          </button>
+          <Button className={" w-fit lg:w-2/12 "}>Submit</Button>
         </div>
       </section>
     </div>

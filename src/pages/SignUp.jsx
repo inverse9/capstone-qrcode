@@ -1,5 +1,6 @@
 import React from "react";
 import Separator from "../components/Separator";
+import Button from "../components/Button";
 
 const SignUp = () => {
   return (
@@ -21,9 +22,7 @@ const SignUp = () => {
             type="password"
           />
         </div>
-        <button className="rounded-full py-3 w-full px-4 bg-blue-600 mt-4 text-slate-50 hover:bg-blue-600/90">
-          Continue
-        </button>
+        <Button className={"w-full"}>Continue</Button>
         <div className="flex gap-x-4 items-center my-10">
           <Separator /> OR <Separator />
         </div>
