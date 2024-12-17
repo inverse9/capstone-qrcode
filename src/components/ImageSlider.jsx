@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log(images);
-  console.log(images[0].src);
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
@@ -16,7 +14,7 @@ const ImageSlider = ({ images }) => {
     <div className="relative w-full max-w-2xl mx-auto">
       <div className="overflow-hidden h-[300px] lg:h-96">
         <img
-          src={images[currentIndex].src}
+          src={`${import.meta.env.VITE_IMAGE_PATH}/${images[currentIndex].src}`}
           alt={`Slide ${currentIndex + 1}`}
           className="w-full h-full object-cover"
         />

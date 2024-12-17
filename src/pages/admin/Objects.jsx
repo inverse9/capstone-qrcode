@@ -44,9 +44,8 @@ const Object = () => {
 
   const submitDelete = async () => {
     await deleteData(selectedObject.id).then(() => {
-      setIsOpenDelete(false);
-
       fetchAll(user.id);
+      setIsOpenDelete(false);
     });
   };
 
@@ -61,74 +60,76 @@ const Object = () => {
     // };
   }, []);
 
-  if (isPageLoaded && !isLoading) {
+  if (isPageLoaded) {
     return (
       <div className="px-2 lg:px-10">
         <div>
           <Button
-            className={"lg:w-2/12 mt-0"}
+            className={"lg:w-3/12 xl:w-2/12 mt-0"}
             onClick={() => navigate("/object")}
           >
             Tambah Object
           </Button>
-          {/* <button className="w-fit lg:w-2/12 py-2 px-4 bg-blue-600 rounded-lg text-slate-100 hover:bg-blue-700"></button> */}
+
           {objects && objects.length > 0 ? (
             <>
-              <table className=" w-full text-base bg-white shadow rounded-2xl mt-6">
-                <thead className="text-slate-800 border-b sticky top-14 bg-white rounded-t-2xl">
-                  <tr className="text-left ">
-                    <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
-                      Nama Object
-                    </th>
-                    <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
-                      Tanggal dibuat
-                    </th>
-                    <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl"></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {objects.map((v, _) => (
-                    <tr key={v.id} className="text-sm ">
-                      <td className="p-3 text-left">
-                        <div className="text-left">
-                          <h3
-                            className="cursor-pointer hover:underline inline"
-                            onClick={() => navigate(`/object/${v.id}`)}
-                          >
-                            {v.object_name}
-                          </h3>
-                        </div>
-                      </td>
-                      <td className="p-3">
-                        <div className="">
-                          {formatTime(v.date_time)} {formatDate(v.date_time)}
-                        </div>
-                      </td>
-
-                      <td className="p-3 flex gap-2">
-                        <button
-                          onClick={() => handleQR(v)}
-                          className="rounded-lg p-2 border border-slate-300 hover:bg-blue-500 hover:text-slate-50 hover:border-blue-500"
-                        >
-                          <QrCodeIcon className="size-4" />
-                        </button>
-                        <button
-                          onClick={() => navigate(`/object/${v.id}`)}
-                          className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500"
-                        >
-                          <PencilIcon className="size-4" />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(v)}
-                          className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500"
-                        >
-                          <TrashIcon className="size-4" />
-                        </button>
-                      </td>
+              {!isLoading && (
+                <table className=" w-full text-base bg-white shadow rounded-2xl mt-6">
+                  <thead className="text-slate-800 border-b sticky top-14 bg-white rounded-t-2xl">
+                    <tr className="text-left ">
+                      <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
+                        Nama Object
+                      </th>
+                      <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
+                        Tanggal dibuat
+                      </th>
+                      <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl"></th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {objects.map((v, _) => (
+                      <tr key={v.id} className="text-sm ">
+                        <td className="p-3 text-left">
+                          <div className="text-left">
+                            <h3
+                              className="cursor-pointer hover:underline inline"
+                              onClick={() => navigate(`/object/${v.id}`)}
+                            >
+                              {v.object_name}
+                            </h3>
+                          </div>
+                        </td>
+                        <td className="p-3">
+                          <div className="">
+                            {formatTime(v.date_time)} {formatDate(v.date_time)}
+                          </div>
+                        </td>
+
+                        <td className="p-3 flex gap-2">
+                          <button
+                            onClick={() => handleQR(v)}
+                            className="rounded-lg p-2 border border-slate-300 hover:bg-blue-500 hover:text-slate-50 hover:border-blue-500"
+                          >
+                            <QrCodeIcon className="size-4" />
+                          </button>
+                          <button
+                            onClick={() => navigate(`/object/${v.id}`)}
+                            className="rounded-lg p-2 border border-slate-300 hover:bg-yellow-500 hover:text-slate-50 hover:border-yellow-500"
+                          >
+                            <PencilIcon className="size-4" />
+                          </button>
+                          <button
+                            onClick={() => handleDelete(v)}
+                            className="rounded-lg p-2 border border-slate-300 hover:bg-red-500 hover:text-slate-50 hover:border-red-500"
+                          >
+                            <TrashIcon className="size-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
             </>
           ) : (
             <>belum terdapat data</>
@@ -231,13 +232,13 @@ const Object = () => {
                       Hapus!
                     </Button>
 
-                    <button
-                      type="button"
+                    <Button
+                      isLoading={isLoading}
                       onClick={() => setIsOpenDelete(false)}
-                      className="inline-flex w-full justify-center rounded-md border  px-3 py-2 text-sm font-semibold shadow-sm hover:bg-slate-200 sm:ml-3 sm:w-auto"
+                      className="inline-flex w-full justify-center rounded-md border outline-none bg-white text-slate-800 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-slate-200 sm:ml-3 sm:w-auto"
                     >
                       Kembali
-                    </button>
+                    </Button>
                   </div>
                 </DialogPanel>
               </div>

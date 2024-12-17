@@ -74,26 +74,32 @@ const CreateObject = () => {
   };
 
   const onSubmit = async () => {
-    let objectId = 0;
-    const objectData = { user_id: user.id, nama: objectName };
-    await store(objectData).then((v) => {
-      objectId = v.data.id;
-      const propertiesData = components.map((component, _) => ({
+    try {
+      const objectData = { user_id: user.id, nama: objectName };
+      const objectResponse = await store(objectData);
+      const objectId = objectResponse.data.id;
+
+      const propertiesData = components.map((component) => ({
         object_id: objectId,
         ...component,
       }));
-      storeProperties(propertiesData).then(() => {
-        if (images.length === 0) {
-          navigate("/objects");
-        } else {
-          const imgData = {
-            object_id: objectId,
-            src: images[0].name,
-          };
-          storeImages(imgData).then(() => navigate("/objects"));
-        }
-      });
-    });
+      await storeProperties(propertiesData);
+
+      if (images.length > 0) {
+        const formData = new FormData();
+        formData.append("object_id", objectId);
+
+        images.forEach((image) => {
+          formData.append("images", image);
+        });
+
+        await storeImages(formData);
+      }
+
+      navigate("/objects");
+    } catch (error) {
+      console.error("Error during submission:", error);
+    }
   };
 
   return (
