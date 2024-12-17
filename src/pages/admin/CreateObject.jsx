@@ -69,7 +69,7 @@ const CreateObject = () => {
         await storeImages(formData);
       }
 
-      // navigate("/objects");
+      navigate("/objects");
     } catch (error) {
       console.error("Error during submission:", error);
     }
