@@ -37,33 +37,6 @@ const CreateObject = () => {
     Promise.all(filePreviews).then((previews) => setPreviews(previews));
   };
 
-  // const uploadImages = async () => {
-  //   if (images.length === 0) {
-  //     alert("No images selected!");
-  //     return;
-  //   }
-
-  //   const formData = new FormData();
-  //   images.forEach((image, index) => formData.append(`image_${index}`, image));
-
-  //   try {
-  //     const response = await fetch("YOUR_API_ENDPOINT", {
-  //       method: "POST",
-  //       body: formData,
-  //     });
-
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       alert("Images uploaded successfully!");
-  //       console.log("Server Response:", data);
-  //     } else {
-  //       alert("Failed to upload images.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error uploading images:", error);
-  //   }
-  // };
-
   const handleAddComponent = () => {
     const newComponent = { judul: "", isi: "" };
     setComponents([...components, newComponent]);
@@ -96,7 +69,7 @@ const CreateObject = () => {
         await storeImages(formData);
       }
 
-      navigate("/objects");
+      // navigate("/objects");
     } catch (error) {
       console.error("Error during submission:", error);
     }
