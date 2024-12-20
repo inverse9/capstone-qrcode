@@ -72,9 +72,9 @@ const Object = () => {
           </Button>
 
           {objects && objects.length > 0 ? (
-            <>
+            <div className=" rounded-xl border-2 border-slate-800 mt-6">
               {!isLoading && (
-                <table className=" w-full text-base bg-white shadow rounded-2xl mt-6">
+                <table className=" w-full text-base bg-white shadow rounded-2xl">
                   <thead className="text-slate-800 border-b sticky top-14 bg-white rounded-t-2xl">
                     <tr className="text-left ">
                       <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl">
@@ -86,7 +86,7 @@ const Object = () => {
                       <th className="p-3 first:rounded-tl-2xl last:rounded-tr-2xl"></th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
+                  <tbody className="divide-y divide-gray-200  rounded-b-lg">
                     {objects.map((v, _) => (
                       <tr key={v.id} className="text-sm ">
                         <td className="p-3 text-left">
@@ -130,7 +130,7 @@ const Object = () => {
                   </tbody>
                 </table>
               )}
-            </>
+            </div>
           ) : (
             <>belum terdapat data</>
           )}

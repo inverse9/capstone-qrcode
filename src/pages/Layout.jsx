@@ -90,7 +90,7 @@ const Layout = () => {
             <div className="flex w-full items-center px-6 py-6 ">
               <img
                 className="w-full h-full object-cover"
-                src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
+                src="/logocapstonebg.png"
                 alt="logo"
               />
             </div>

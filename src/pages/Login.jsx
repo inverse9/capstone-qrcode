@@ -107,7 +107,7 @@ const Login = () => {
           </form>
           <div className="mt-4">
             <span className="text-sm text-slate-600">
-              Don{"'"}t have an acount?{" "}
+              Don{"'"}t have an account?{" "}
               <span
                 role="link"
                 onClick={() => navigate("/signup")}

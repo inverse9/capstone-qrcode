@@ -7,9 +7,9 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col lg:flex-row gap-4 md:h-[500px] h-[1000px]">
-        <div className="flex flex-col w-full lg:w-2/6 h-full">
+        <div className="flex flex-col w-full lg:w-2/6 h-full ">
           <h1 className="font-semibold">Jumlah Object yang di scan hari ini</h1>
-          <div className=" w-full h-full border p-4 bg-white rounded-lg">
+          <div className=" w-full h-full p-4 bg-white rounded-lg border-2 border-slate-800">
             <div className="flex flex-col size-full">
               <ChartPie />
               <div className="self-start flex-1">
@@ -39,7 +39,7 @@ const Dashboard = () => {
             <h1 className="font-semibold">
               Jumlah Object yang di scan dalam waktu 1 minggu terakhir
             </h1>
-            <div className=" w-full h-full border p-4 bg-white rounded-lg">
+            <div className=" w-full h-full border p-4 bg-white rounded-lg border-2 border-slate-800">
               <div className="flex flex-col size-full">
                 <ChartBar />
               </div>
@@ -52,7 +52,7 @@ const Dashboard = () => {
           <h1 className="font-semibold">
             Jumlah Object yang di scan dalam waktu 1 minggu terakhir2
           </h1>
-          <div className=" w-full h-[400px] border p-4 bg-white rounded-lg">
+          <div className=" w-full h-[400px] border p-4 bg-white rounded-lg border-2 border-slate-800">
             <div className="flex flex-col size-full">
               <ChartLine />
             </div>

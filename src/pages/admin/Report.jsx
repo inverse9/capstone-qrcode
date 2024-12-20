@@ -17,7 +17,7 @@ const Report = () => {
   return (
     <div>
       <h1>Laporan</h1>
-      <section className="bg-white p-4 rounded-lg mt-2 shadow">
+      <section className="bg-white p-4 rounded-lg mt-2 shadow border-2 border-slate-800 ">
         <div className="mb-4">
           <h1 className="mb-2">Pilih Object</h1>
           <DropdownSelect options={options} />

@@ -22,7 +22,6 @@ const CreateObject = () => {
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-
     setImages(files);
 
     // Create previews for all selected images
@@ -79,7 +78,7 @@ const CreateObject = () => {
     <div className="px-10">
       <h1 className="font-semibold text-xl mb-4">Input Object</h1>
       <div className="flex flex-col gap-4">
-        <section className="bg-white rounded-md w-full p-4 shadow">
+        <section className="bg-white rounded-md w-full p-4 shadow border-2 border-slate-800 ">
           <div>
             <span className="text-sm ">Nama Object</span>
             <input
@@ -93,7 +92,7 @@ const CreateObject = () => {
         {components.map((_, i) => (
           <section
             key={i}
-            className="bg-white rounded-md w-full p-4 mt-4 shadow relative"
+            className="bg-white rounded-md w-full p-4 mt-4 shadow relative border-2 border-slate-800 "
           >
             {i > 0 && (
               <span
@@ -138,7 +137,7 @@ const CreateObject = () => {
           </section>
         ))}
       </div>
-      <section className="bg-white rounded-md w-full p-4 mt-4 shadow">
+      <section className="bg-white rounded-md w-full p-4 mt-4 shadow border-2 border-slate-800 ">
         <span className="text-sm ">Gambar</span>
         <div>
           <input
@@ -153,7 +152,8 @@ const CreateObject = () => {
                 key={index}
                 src={preview}
                 alt={`Preview ${index + 1}`}
-                style={{ width: "100px" }}
+                className="aspect-video w-28"
+                // style={{ width: "100px" }}
               />
             ))}
           </div>

@@ -22,7 +22,7 @@ export default function Paging() {
       <div className="hidden sm:flex bg-white ">
         <nav
           aria-label="Pagination"
-          className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+          className="isolate inline-flex -space-x-px rounded-md shadow-sm border-2 border-slate-800 "
         >
           <a
             href="#"
