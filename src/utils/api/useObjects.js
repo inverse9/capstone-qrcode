@@ -35,8 +35,8 @@ export const useObjects = () => {
         relation: true,
       },
     };
-    await axiosRequest("GET", `objects/${id}`, config)
-      .then((v) => setObject(v.data))
+    return await axiosRequest("GET", `objects/${id}`, config)
+      // .then((v) => setObject(v.data))
       .catch((e) => {
         console.error("Error object:", e);
         if (e.response) {
@@ -58,9 +58,6 @@ export const useObjects = () => {
   const store = async (data) => {
     setLoading(true);
     return await axiosRequest("POST", "/objects", data)
-      // .then(() =>
-      //   fetchAll()
-      // );
       .catch((e) => {
         console.log(e.response.data.errors);
       })
@@ -69,12 +66,16 @@ export const useObjects = () => {
       });
   };
 
-  //   const update = async (data: Partial<servicePropsSend>, id: number) => {
-  //     setLoading(true);
-  //     await axiosRequest("POST", `service/${id}`, undefined, data).then(() =>
-  //       fetchAll()
-  //     );
-  //   };
+  const update = async (data, id) => {
+    setLoading(true);
+    await axiosRequest("PUT", `/objects/${id}`, undefined, data)
+      // .then(() =>
+      //   fetchAll()
+      // );
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   const deleteData = async (id) => {
     setLoading(true);
@@ -89,7 +90,7 @@ export const useObjects = () => {
     fetchAll,
     fetchbyId,
     store,
-    // update,
+    update,
     deleteData,
     setPageLoaded,
     isPageLoaded,

@@ -68,12 +68,14 @@ export const useObjectProperties = () => {
       });
   };
 
-  //   const update = async (data: Partial<servicePropsSend>, id: number) => {
-  //     setLoading(true);
-  //     await axiosRequest("POST", `service/${id}`, undefined, data).then(() =>
-  //       fetchAll()
-  //     );
-  //   };
+  const update = async (data, id) => {
+    setLoading(true);
+    await axiosRequest("PUT", `/properties/${id}`, undefined, data).finally(
+      () => {
+        setLoading(false);
+      }
+    );
+  };
 
   //   const deleteData = async (id: number) => {
   //     setLoading(true);
@@ -84,7 +86,7 @@ export const useObjectProperties = () => {
     isLoading,
     isErr,
     store,
-    // update,
+    update,
     // deleteData,
     setPageLoaded,
     isPageLoaded,
