@@ -1,15 +1,14 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MarkdownEditor from "../../components/MarkdownEditor";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useObjects } from "../../utils/api/useObjects";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useObjectProperties } from "../../utils/api/useObjectProperties";
 import { useObjectImage } from "../../utils/api/useObjectImage";
 import Button from "../../components/Button";
 
 const CreateObject = () => {
+  let { id } = useParams();
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const { store } = useObjects();
@@ -76,7 +75,10 @@ const CreateObject = () => {
 
   return (
     <div className="px-10">
-      <h1 className="font-semibold text-xl mb-4">Input Object</h1>
+      <h1 className="font-semibold text-xl mb-4">
+        Input Object
+        {id}
+      </h1>
       <div className="flex flex-col gap-4">
         <section className="bg-white rounded-md w-full p-4 shadow border-2 border-slate-800 ">
           <div>
