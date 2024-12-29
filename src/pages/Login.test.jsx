@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { describe, test, expect } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import LoginScreen from "./Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -25,13 +25,20 @@ describe("LoginScreen", () => {
     expect(btn).toBeInTheDocument();
   });
 
-  test("should redirect to dashboard page", () => {
+  test("should redirect to dashboard page", async () => {
     render(<RouterProvider router={router} />);
 
-    const linkElement = screen.getByRole("button", { name: /Sign In/i });
-    fireEvent.click(linkElement);
+    const email = screen.getByLabelText(/Email Address/i);
+    const password = screen.getByLabelText(/Password/i);
+    const loginButton = screen.getByRole("button", { name: /Sign In/i });
 
-    expect(window.location.pathname).toBe("/dashboard");
+    fireEvent.change(email, { target: { value: "admin1@capstone.com" } });
+    fireEvent.change(password, { target: { value: "123" } });
+    fireEvent.click(loginButton);
+
+    await waitFor(() => {
+      expect(window.location.pathname).toBe("/dashboard");
+    });
   });
 
   // test.skip("should redirect to sign up page", () => {
