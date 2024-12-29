@@ -1,8 +1,22 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 export default function Paging() {
+// {dataLength,
+// itemsPerPage,
+// setCurrentPage,
+// currentPage,}
+  // const totalPages = Math.ceil(dataLength / itemsPerPage);
+  // const pageNumbers = Array.from(
+  //   { length: totalPages },
+  //   (_, index) => index + 1
+  // );
+  // const handlePageChange = (pageNumber) => {
+  //   if (pageNumber < 1 || totalPages < pageNumber) return;
+  //   setCurrentPage(pageNumber);
+  // };
   return (
     <div className="flex justify-end items-center px-4 py-3 sm:px-6 mt-4">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -26,11 +40,26 @@ export default function Paging() {
         >
           <a
             href="#"
+            // onClick={() => handlePageChange(currentPage - 1)}
             className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
           >
             <span className="sr-only">Previous</span>
             <ChevronLeftIcon aria-hidden="true" className="size-5" />
           </a>
+          {/* {pageNumbers.map((number, i) => (
+            <a
+              key={i}
+              href="#"
+              onClick={() => handlePageChange(number)}
+              className={`${
+                currentPage == number
+                  ? " bg-blue-600 text-white"
+                  : "hover:bg-gray-200 text-gray-900"
+              } relative inline-flex items-center px-4 py-2 text-sm font-semibold  ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0`}
+            >
+              {number}
+            </a>
+          ))} */}
           {/* Current: "z-10 bg-blue-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
           <a
             href="#"
@@ -74,6 +103,7 @@ export default function Paging() {
           </a>
           <a
             href="#"
+            // onClick={() => handlePageChange(currentPage + 1)}
             className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
           >
             <span className="sr-only">Next</span>

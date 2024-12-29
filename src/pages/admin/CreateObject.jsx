@@ -15,11 +15,9 @@ const CreateObject = () => {
     store,
     fetchbyId,
     update,
-    object,
     isLoading: isInitialLoading,
   } = useObjects();
-  const { store: storeProperties, update: updateProperties } =
-    useObjectProperties();
+  const { store: storeProperties } = useObjectProperties();
   const { store: storeImages, isLoading } = useObjectImage();
   const [objectName, setobjectName] = useState("");
   const [components, setComponents] = useState([{ judul: "", isi: "1" }]);
@@ -28,9 +26,10 @@ const CreateObject = () => {
 
   const getObjectbyId = async (id) => {
     await fetchbyId(id).then((v) => {
-      console.log(v);
       setobjectName(v.data.object_name);
       setComponents(v.data.properties);
+
+      setPreviews(v.data.images);
     });
   };
 
@@ -180,7 +179,11 @@ const CreateObject = () => {
                 {previews.map((preview, index) => (
                   <img
                     key={index}
-                    src={preview}
+                    src={
+                      id
+                        ? `${import.meta.env.VITE_IMAGE_PATH}/${preview.src}`
+                        : preview
+                    }
                     alt={`Preview ${index + 1}`}
                     className="aspect-video w-28"
                     // style={{ width: "100px" }}

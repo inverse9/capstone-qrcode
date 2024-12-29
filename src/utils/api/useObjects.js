@@ -4,6 +4,7 @@ import { axiosRequest } from "../axios";
 export const useObjects = () => {
   const controller = new AbortController();
   const [objects, setObjects] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [object, setObject] = useState();
   const [isErr, setErr] = useState(false);
   const [isLoading, setLoading] = useState(false);

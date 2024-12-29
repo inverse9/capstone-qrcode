@@ -25,12 +25,30 @@ const Object = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const { fetchAll, isPageLoaded, objects, deleteData, isLoading } =
+  const { fetchAll, deleteData, isPageLoaded, objects, isLoading } =
     useObjects();
   const [selectedObject, setselectedObject] = useState({});
   const [size, setSize] = useState(400);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
+
+  // const data = [
+  //   { id: 1, name: "Item 1" },
+  //   { id: 2, name: "Item 2" },
+  //   { id: 3, name: "Item 3" },
+  //   { id: 4, name: "Item 4" },
+  //   { id: 5, name: "Item 5" },
+  //   { id: 6, name: "Item 6" },
+  //   { id: 7, name: "Item 7" },
+  //   { id: 8, name: "Item 8" },
+  //   { id: 9, name: "Item 9" },
+  //   { id: 10, name: "Item 10" },
+  // ];
+  // const itemsPerPage = 2;
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const indexOfLastItem = currentPage * itemsPerPage;
+  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  // const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   const handleQR = (object) => {
     setselectedObject(object);
@@ -245,8 +263,15 @@ const Object = () => {
             </div>
           </Dialog>
         )}
-
-        <Paging />
+        {/* {currentItems.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))} */}
+        <Paging
+        // dataLength={objects.length}
+        // itemsPerPage={itemsPerPage}
+        // setCurrentPage={setCurrentPage}
+        // currentPage={currentPage}
+        />
       </div>
     );
   }
