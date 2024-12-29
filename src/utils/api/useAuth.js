@@ -12,7 +12,8 @@ export const useAuth = () => {
     return await axiosRequest("POST", "/auth/login", data)
       .catch((e) => {
         // console.log(e.response.data.message);
-        setErr(e.response.data.message);
+        setErr(e.response);
+        console.log(e.response);
       })
       .finally(() => {
         setLoading(false);
