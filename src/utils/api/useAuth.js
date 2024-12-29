@@ -13,7 +13,7 @@ export const useAuth = () => {
       .catch((e) => {
         // console.log(e.response.data.message);
         setErr(e.response);
-        console.log(e.response);
+        console.log({ pepega: e.response });
       })
       .finally(() => {
         setLoading(false);
