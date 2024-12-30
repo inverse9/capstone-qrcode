@@ -6,17 +6,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useObjectProperties } from "../../utils/api/useObjectProperties";
 import { useObjectImage } from "../../utils/api/useObjectImage";
 import Button from "../../components/Button";
+import Loading from "../../components/Loading";
 
 const CreateObject = () => {
   let { id } = useParams();
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
-  const {
-    store,
-    fetchbyId,
-    update,
-    isLoading: isInitialLoading,
-  } = useObjects();
+  const { store, fetchbyId, update, isPageLoaded, object } = useObjects();
   const { store: storeProperties } = useObjectProperties();
   const { store: storeImages, isLoading } = useObjectImage();
   const [objectName, setobjectName] = useState("");
@@ -25,12 +21,12 @@ const CreateObject = () => {
   const [previews, setPreviews] = useState([]);
 
   const getObjectbyId = async (id) => {
-    await fetchbyId(id).then((v) => {
-      setobjectName(v.data.object_name);
-      setComponents(v.data.properties);
-
-      setPreviews(v.data.images);
-    });
+    await fetchbyId(id);
+    // .then((v) => {
+    //   setobjectName(v.data.object_name);
+    //   setComponents(v.data.properties);
+    //   setPreviews(v.data.images);
+    // });
   };
 
   const handleImageChange = (e) => {
@@ -84,14 +80,16 @@ const CreateObject = () => {
       formData.append("images", image);
     });
 
-    await storeImages(formData);
+    await storeImages(formData).finally(() => navigate("/objects"));
   };
 
   const onSubmit = async () => {
+    if (objectName === "") {
+      alert("Data masih kosong");
+      return;
+    }
     try {
       storeObject();
-
-      navigate("/objects");
     } catch (error) {
       console.error("Error during submission:", error);
     }
@@ -101,9 +99,17 @@ const CreateObject = () => {
     if (id) getObjectbyId(id);
   }, []);
 
+  useEffect(() => {
+    if (object) {
+      setobjectName(object.object_name);
+      setComponents(object.properties);
+      setPreviews(object.images);
+    }
+  }, [object]);
+
   return (
     <div className="px-10">
-      {!isInitialLoading ? (
+      {isPageLoaded ? (
         <>
           <h1 className="font-semibold text-xl mb-4">Input Object</h1>
           <div className="flex flex-col gap-4">
@@ -192,13 +198,13 @@ const CreateObject = () => {
               </div>
             </div>
           </section>
-          <div className="text-right">
+          <div className="flex justify-end">
             <Button
               className={"w-fit lg:w-2/12"}
               onClick={() => (isLoading ? "" : onSubmit())}
               isLoading={isLoading}
             >
-              Submit
+              {isLoading ? <Loading withText /> : "Submit"}
             </Button>
           </div>
         </>

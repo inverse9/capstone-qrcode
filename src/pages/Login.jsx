@@ -3,6 +3,7 @@ import Separator from "../components/Separator";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/api/useAuth";
 import Button from "../components/Button";
+import Loading from "../components/Loading";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -102,7 +103,7 @@ const Login = () => {
               <div className="mb-4 mt-2 text-red-500 absolute">*{err}</div>
             )}
             <Button isLoading={isLoading} type="submit">
-              Sign in
+              {isLoading ? <Loading withText /> : "Login"}
             </Button>
           </form>
           <div className="mt-4">

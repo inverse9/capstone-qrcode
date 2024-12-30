@@ -37,7 +37,7 @@ export const useObjects = () => {
       },
     };
     return await axiosRequest("GET", `objects/${id}`, config)
-      // .then((v) => setObject(v.data))
+      .then((v) => setObject(v.data))
       .catch((e) => {
         console.error("Error object:", e);
         if (e.response) {
