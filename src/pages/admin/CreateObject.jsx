@@ -20,20 +20,10 @@ const CreateObject = () => {
   const [images, setImages] = useState([]);
   const [previews, setPreviews] = useState([]);
 
-  const getObjectbyId = async (id) => {
-    await fetchbyId(id);
-    // .then((v) => {
-    //   setobjectName(v.data.object_name);
-    //   setComponents(v.data.properties);
-    //   setPreviews(v.data.images);
-    // });
-  };
-
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setImages(files);
 
-    // Create previews for all selected images
     const filePreviews = files.map((file) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -96,6 +86,9 @@ const CreateObject = () => {
   };
 
   useEffect(() => {
+    const getObjectbyId = async (id) => {
+      await fetchbyId(id);
+    };
     if (id) getObjectbyId(id);
   }, []);
 

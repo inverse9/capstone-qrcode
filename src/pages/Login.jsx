@@ -7,19 +7,25 @@ import Loading from "../components/Loading";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { authentication, isLoading, err } = useAuth();
+
+  const [err, setErr] = useState("");
+  const { authentication, isLoading } = useAuth();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await authentication(credentials).then((v) => {
-      saveSess(v.data);
-      if (v.data.id === 1) {
-        navigate("/superadmin");
-      } else {
-        navigate("/dashboard");
-      }
-    });
+    await authentication(credentials)
+      .then((v) => {
+        saveSess(v.data);
+        if (v.data.id === 1) {
+          navigate("/superadmin");
+        } else {
+          navigate("/dashboard");
+        }
+      })
+      .catch((e) => {
+        setErr(e.response.data.message);
+      });
   };
 
   const saveSess = (response) => {
