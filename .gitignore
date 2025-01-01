@@ -23,3 +23,18 @@ dist-ssr
 *.sw?
 
 .env
+cypress
+public
+src
+.env.example
+.htaccess
+cypress.config.js
+eslint.config.js
+index.html
+package.json
+package-lock.json
+postcss.config.js
+tailwind.config.js
+vercel.json
+vite.config.js
+vitest.config.js
