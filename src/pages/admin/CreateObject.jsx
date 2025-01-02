@@ -100,110 +100,111 @@ const CreateObject = () => {
     }
   }, [object]);
 
+  if (id) {
+    if (!isPageLoaded) {
+      return "Loading...";
+    }
+  }
   return (
     <div className="px-10">
-      {isPageLoaded ? (
-        <>
-          <h1 className="font-semibold text-xl mb-4">Input Object</h1>
-          <div className="flex flex-col gap-4">
-            <section className="bg-white rounded-md w-full p-4 shadow border-2 border-slate-800 ">
+      <>
+        <h1 className="font-semibold text-xl mb-4">Input Object</h1>
+        <div className="flex flex-col gap-4">
+          <section className="bg-white rounded-md w-full p-4 shadow border-2 border-slate-800 ">
+            <div>
+              <span className="text-sm ">Nama Object</span>
+              <input
+                value={objectName}
+                onChange={(v) => setobjectName(v.currentTarget.value)}
+                className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50 focus:outline-none focus:bg-white"
+                type="text"
+              />
+            </div>
+          </section>
+          {components.map((_, i) => (
+            <section
+              key={i}
+              className="bg-white rounded-md w-full p-4 mt-4 shadow relative border-2 border-slate-800 "
+            >
+              {i > 0 && (
+                <span
+                  onClick={() => handleRemoveComponent(i)}
+                  className="cursor-pointer hover:text-red-400"
+                >
+                  <XMarkIcon className="size-5 absolute right-2 top-2" />
+                </span>
+              )}
               <div>
-                <span className="text-sm ">Nama Object</span>
+                <span className="text-sm ">Kategori</span>
                 <input
-                  value={objectName}
-                  onChange={(v) => setobjectName(v.currentTarget.value)}
+                  value={components[i].judul}
+                  onChange={(va) => {
+                    const val = va.currentTarget.value;
+                    setComponents((prev) =>
+                      prev.map((item, idx) =>
+                        idx === i ? { ...item, judul: val } : item
+                      )
+                    );
+                  }}
                   className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50 focus:outline-none focus:bg-white"
                   type="text"
                 />
               </div>
-            </section>
-            {components.map((_, i) => (
-              <section
-                key={i}
-                className="bg-white rounded-md w-full p-4 mt-4 shadow relative border-2 border-slate-800 "
-              >
-                {i > 0 && (
-                  <span
-                    onClick={() => handleRemoveComponent(i)}
-                    className="cursor-pointer hover:text-red-400"
-                  >
-                    <XMarkIcon className="size-5 absolute right-2 top-2" />
-                  </span>
-                )}
-                <div>
-                  <span className="text-sm ">Kategori</span>
-                  <input
-                    value={components[i].judul}
-                    onChange={(va) => {
-                      const val = va.currentTarget.value;
-                      setComponents((prev) =>
-                        prev.map((item, idx) =>
-                          idx === i ? { ...item, judul: val } : item
-                        )
-                      );
-                    }}
-                    className="mt-1 border bg-transparent border-slate-400 w-full py-2 px-4 rounded-lg hover:bg-slate-200/50 focus:outline-none focus:bg-white"
-                    type="text"
-                  />
-                </div>
-                <div className="mt-4">
-                  <span className="text-sm ">Isi</span>
-                  <MarkdownEditor
-                    index={i}
-                    value={components}
-                    setValue={setComponents}
-                  />
-                </div>
-                {i === components.length - 1 && (
-                  <Button
-                    className={"w-fit mt-2"}
-                    onClick={() => handleAddComponent()}
-                  >
-                    Tambah kategori lain
-                  </Button>
-                )}
-              </section>
-            ))}
-          </div>
-          <section className="bg-white rounded-md w-full p-4 mt-4 shadow border-2 border-slate-800 ">
-            <span className="text-sm ">Gambar</span>
-            <div>
-              <input
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleImageChange}
-              />
-              <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-                {previews.map((preview, index) => (
-                  <img
-                    key={index}
-                    src={
-                      id
-                        ? `${import.meta.env.VITE_IMAGE_PATH}/${preview.src}`
-                        : preview
-                    }
-                    alt={`Preview ${index + 1}`}
-                    className="aspect-video w-28"
-                    // style={{ width: "100px" }}
-                  />
-                ))}
+              <div className="mt-4">
+                <span className="text-sm ">Isi</span>
+                <MarkdownEditor
+                  index={i}
+                  value={components}
+                  setValue={setComponents}
+                />
               </div>
+              {i === components.length - 1 && (
+                <Button
+                  className={"w-fit mt-2"}
+                  onClick={() => handleAddComponent()}
+                >
+                  Tambah kategori lain
+                </Button>
+              )}
+            </section>
+          ))}
+        </div>
+        <section className="bg-white rounded-md w-full p-4 mt-4 shadow border-2 border-slate-800 ">
+          <span className="text-sm ">Gambar</span>
+          <div>
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleImageChange}
+            />
+            <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+              {previews.map((preview, index) => (
+                <img
+                  key={index}
+                  src={
+                    id
+                      ? `${import.meta.env.VITE_IMAGE_PATH}/${preview.src}`
+                      : preview
+                  }
+                  alt={`Preview ${index + 1}`}
+                  className="aspect-video w-28"
+                  // style={{ width: "100px" }}
+                />
+              ))}
             </div>
-          </section>
-          <div className="flex justify-end">
-            <Button
-              className={"w-fit lg:w-2/12"}
-              onClick={() => (isLoading ? "" : onSubmit())}
-              isLoading={isLoading}
-            >
-              {isLoading ? <Loading withText /> : "Submit"}
-            </Button>
           </div>
-        </>
-      ) : (
-        "loading"
-      )}
+        </section>
+        <div className="flex justify-end">
+          <Button
+            className={"w-fit lg:w-2/12"}
+            onClick={() => (isLoading ? "" : onSubmit())}
+            isLoading={isLoading}
+          >
+            {isLoading ? <Loading withText /> : "Submit"}
+          </Button>
+        </div>
+      </>
     </div>
   );
 };

@@ -26,8 +26,8 @@ const Report = () => {
     },
   ];
   return (
-    <div>
-      <h1>Laporan</h1>
+    <div className="px-2 lg:px-10">
+      <h1 className="font-semibold text-xl">Laporan</h1>
       <section className="bg-white p-4 rounded-lg mt-2 shadow border-2 border-slate-800 ">
         <div className="mb-4">
           <h1 className="mb-2">Pilih Object</h1>
@@ -39,17 +39,17 @@ const Report = () => {
           setEndDate={setEndDate}
           setStartDate={setStartDate}
         />
-        <div className="text-right">
-          <Button
-            onClick={() =>
-              exportToExcel(data, "20-12-2024", "22-12-2024", "object")
-            }
-            className={"w-fit lg:w-2/12 "}
-          >
-            Export
-          </Button>
-        </div>
       </section>
+      <div className="flex justify-end">
+        <Button
+          onClick={() =>
+            exportToExcel(data, "20-12-2024", "22-12-2024", "object")
+          }
+          className={"w-fit lg:w-2/12 "}
+        >
+          Export
+        </Button>
+      </div>
     </div>
   );
 };

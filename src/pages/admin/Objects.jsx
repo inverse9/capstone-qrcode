@@ -81,6 +81,7 @@ const Object = () => {
   if (isPageLoaded) {
     return (
       <div className="px-2 lg:px-10">
+        <h1 className="font-semibold text-xl">List Object</h1>
         <div>
           <Button
             className={"lg:w-3/12 xl:w-2/12 mt-0"}
