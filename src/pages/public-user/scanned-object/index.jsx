@@ -5,13 +5,20 @@ import Separator from "../../../components/Separator";
 import { useParams } from "react-router-dom";
 import { useObjects } from "../../../utils/api/useObjects";
 import DOMPurify from "dompurify";
+import { useHistory } from "../../../utils/api/useHistory";
 
 const ScannedObject = () => {
   let { id } = useParams();
   const { fetchbyId, object, isPageLoaded, isErr } = useObjects();
+  const { store, isLoading } = useHistory();
 
   useEffect(() => {
-    fetchbyId(id);
+    const addToHistory = async (id) => {
+      await store(id);
+    };
+    addToHistory(id);
+
+    if (isLoading === false) fetchbyId(id);
     // return () => {
     //   controller.abort();
     // };
