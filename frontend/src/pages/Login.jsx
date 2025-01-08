@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Separator from "../components/Separator";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/api/useAuth";
@@ -35,6 +35,13 @@ const Login = () => {
     );
     localStorage.setItem("token", response.token);
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, []);
 
   return (
     <div className="h-screen flex flex-col md:flex-row">

@@ -13,37 +13,43 @@ import "./index.css";
 import Report from "./pages/admin/Report.jsx";
 import Dashboard from "./pages/admin/index.jsx";
 import ListUser from "./pages/super-admin/ListUser.jsx";
+import ProtectedRoute from "./utils/ProtectedRoute.jsx";
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    element: <ProtectedRoute />,
     children: [
       {
-        path: "/superadmin",
-        element: <Superadmin />,
-      },
-      {
-        path: "/list-user",
-        element: <ListUser />,
-      },
-      {
-        path: "/dashboard",
-        element: <Dashboard />,
-      },
-      {
-        path: "/objects",
-        element: <Objects />,
-      },
-      {
-        path: "/object/:id",
-        element: <CreateObject />,
-      },
-      {
-        path: "/object",
-        element: <CreateObject />,
-      },
-      {
-        path: "/report",
-        element: <Report />,
+        element: <Layout />,
+        children: [
+          {
+            path: "/superadmin",
+            element: <Superadmin />,
+          },
+          {
+            path: "/list-user",
+            element: <ListUser />,
+          },
+          {
+            path: "/dashboard",
+            element: <Dashboard />,
+          },
+          {
+            path: "/objects",
+            element: <Objects />,
+          },
+          {
+            path: "/object/:id",
+            element: <CreateObject />,
+          },
+          {
+            path: "/object",
+            element: <CreateObject />,
+          },
+          {
+            path: "/report",
+            element: <Report />,
+          },
+        ],
       },
     ],
   },
