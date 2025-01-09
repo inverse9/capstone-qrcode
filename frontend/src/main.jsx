@@ -14,6 +14,7 @@ import Report from "./pages/admin/Report.jsx";
 import Dashboard from "./pages/admin/index.jsx";
 import ListUser from "./pages/super-admin/ListUser.jsx";
 import ProtectedRoute from "./utils/ProtectedRoute.jsx";
+import CreateUser from "./pages/super-admin/CreateUser.jsx";
 const router = createBrowserRouter([
   {
     element: <ProtectedRoute />,
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
           {
             path: "/list-user",
             element: <ListUser />,
+          },
+          {
+            path: "/user/:id",
+            element: <CreateUser />,
+          },
+          {
+            path: "/user",
+            element: <CreateUser />,
           },
           {
             path: "/dashboard",

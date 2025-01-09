@@ -81,7 +81,7 @@ const CreateObject = () => {
     try {
       storeObject();
     } catch (error) {
-      console.error("Error during submission:", error);
+      console.error("Error: ", error);
     }
   };
 
